@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
     <head>
@@ -15,18 +16,18 @@
 
         <!-- Nav -->
         <nav id="nav">
-            <a href="#logging" class="icon fa-user"><span>Log In</span></a>
+            <a href="#register" class="icon fa-user-plus"><span>Register</span></a>
         </nav>
 
         <!-- Main -->
         <div id="main">
 
-            <!-- Logging -->
-            <article id="logging" class="panel">
+            <!-- Register -->
+            <article id="register" class="panel">
                 <header>
-                    <h2>Log in</h2>
+                    <h2>New user</h2>
                 </header>
-                <form action="/ServletLogin" method="post">
+                <form action="/UserController" method="post">
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
@@ -36,12 +37,26 @@
                                 <input type="password" name="pass" placeholder="Password" />
                             </div>
                             <div class="col-12">
-                                <input type="submit" value="Access" />
+                                <input type="text" name="name" placeholder="Name" />
+                            </div>
+                            <div class="col-6 col-12-medium">
+                                <input type="text" name="last_name1" placeholder="First last name" />
+                            </div>
+                            <div class="col-6 col-12-medium">
+                                <input type="text" name="last_name2" placeholder="Second last name" />
+                            </div>
+                            <div class="col-12">
+                                <input type="text" name="email" placeholder="Email" />
+                            </div>
+                            <div class="col-12">
+                                <textarea name="address" placeholder="Address" rows="6"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" value="Finish" />
                             </div>
                         </div>
                     </div>
                 </form>
-                <a href="RegisterUser.jsp">Sign Up</a>
             </article>
 
         </div>
@@ -64,3 +79,4 @@
 
     </body>
 </html>
+

@@ -15,8 +15,8 @@
       <!-- Nav -->
       <nav id="nav">
         <a href="#" class="icon fa-home"><span>Home</span></a>
-        <a href="#work" class="icon fa-search"><span>Observations</span></a>
-        <a href="#contact" class="icon fa-user"><span>User settings</span></a>
+        <a href="#observations" class="icon fa-search"><span>Observations</span></a>
+        <a href="#users" class="icon fa-user"><span>User settings</span></a>
       </nav>
 
       <!-- Main -->
@@ -29,14 +29,14 @@
             <h1>Naturalist</h1>
             <p>Update and visualize BIO-INFO</p>
           </header>
-          <a href="#work" class="jumplink pic">
+          <a href="#observations" class="jumplink pic">
             <span class="arrow icon fa-chevron-right"><span>See my work</span></span>
             <img src="images/jaguar.jpg" align="center" />
           </a>
         </article>
 
         <!-- Observations -->
-        <article id="work" class="panel">
+        <article id="observations" class="panel">
           <header>
             <h2>List of observations</h2>
           </header>
@@ -45,58 +45,255 @@
             Below you can add new ones, delete or update the existing.
           </p>
           <section>
-            <div class="row">
+            <%--<div class="row">
               <div class="col-4 col-6-medium col-12-small">
                 <a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
                 <h3>Nombre</h3>
               </div>
               <div class="col-4 col-6-medium col-12-small">
                 <a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-                <h3 style="align-content: center">Nombre</h3>
+                <h3>Nombre</h3>
               </div>
               <div class="col-4 col-6-medium col-12-small">
                 <a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
                 <h3>Nombre</h3>
               </div>
               <div class="col-4 col-6-medium col-12-small">
-                <input type="button" value="New observation" onclick="" align="center">
+                <a href="#" class="icon fa-plus-circle"></a>
               </div>
+            </div>--%>
+
+
+              <table>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td>Hola</td>
+                  <td><a href="#">Update</a></td>
+                  <td><a href="#">Delete</a></td>
+                </tr>
+              </table>
+
               <div class="col-4 col-6-medium col-12-small">
-                <input type="button" value="Delete observation" onclick="">
+                <a href="#" class="icon fa-plus"></a>
               </div>
-              <div class="col-4 col-6-medium col-12-small">
-                <input type="button" value="Update observation" onclick="">
-              </div>
-            </div>
+
+
           </section>
+
         </article>
 
-        <!-- Contact -->
-        <article id="contact" class="panel">
+        <!-- Users -->
+        <article id="users" class="panel">
           <header>
-            <h2>Contact Me</h2>
+            <h2>List of the current registered users</h2>
           </header>
-          <form action="#" method="post">
-            <div>
-              <div class="row">
-                <div class="col-6 col-12-medium">
-                  <input type="text" name="name" placeholder="Name" />
-                </div>
-                <div class="col-6 col-12-medium">
-                  <input type="text" name="email" placeholder="Email" />
-                </div>
-                <div class="col-12">
-                  <input type="text" name="subject" placeholder="Subject" />
-                </div>
-                <div class="col-12">
-                  <textarea name="message" placeholder="Message" rows="6"></textarea>
-                </div>
-                <div class="col-4-small col-4-small">
-                  <input type="submit" value="Send Message" />
-                </div>
-              </div>
+
+          <section>
+
+            <table>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+              <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td><a href="#">Update</a></td>
+                <td><a href="#">Delete</a></td>
+              </tr>
+            </table>
+
+            <div class="col-4 col-6-medium col-12-small">
+              <a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-plus"></a>
             </div>
-          </form>
+
+
+          </section>
+
         </article>
 
       </div>
