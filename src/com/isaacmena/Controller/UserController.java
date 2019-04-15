@@ -42,6 +42,7 @@ public class UserController extends HttpServlet {
     }
 
     private void insertingUser(HttpServletRequest request, HttpServletResponse response){
+
         String userName = request.getParameter("user");
         String password = request.getParameter("pass");
         String realName = request.getParameter("name");
@@ -53,7 +54,14 @@ public class UserController extends HttpServlet {
         // User name is the unique id
         User user = new User(userName, password, realName, lastName1, lastName2, address, email);
 
-        modelUser.insertUser(user);
+        try {
+
+            modelUser.insertUser(user);
+            response.sendRedirect("index.jsp#users");
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void selectingUsers(HttpServletRequest request, HttpServletResponse response){
@@ -73,6 +81,10 @@ public class UserController extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
+
+    }
+
+    private void deletingUser(HttpServletRequest request, HttpServletResponse response){
 
     }
 }

@@ -22,6 +22,9 @@
             <td>${User.email}</td>
             <td>${User.userName}</td>
             <td>${User.password}</td>
+            <td><a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-trash-o"></a></td>
+            <td><a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-pencil"></a></td>
+
         </tr>
 
     </c:forEach>

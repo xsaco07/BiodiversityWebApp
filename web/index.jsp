@@ -40,7 +40,6 @@
 
         <!-- Observations -->
         <article id="observations" class="panel">
-
           <header>
             <h2>List of observations</h2>
           </header>

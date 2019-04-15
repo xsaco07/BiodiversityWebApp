@@ -38,6 +38,5 @@
         <td>TAXON</td>
         <td>SPECIE</td>
         <td>IMAGE URL</td>
-        <td>OPERATION</td>
     </tr>
 </table>
