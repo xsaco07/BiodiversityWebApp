@@ -36,7 +36,7 @@ public class ModelUser {
             result = query.executeQuery(sql);
 
             while (result.next()){
-                users.add(createUserFromQuery(result));
+                users.add(createUserFromResultSetData(result));
             }
 
         }catch (Exception e){
@@ -47,7 +47,7 @@ public class ModelUser {
 
     }
 
-    private User createUserFromQuery(ResultSet result){
+    private User createUserFromResultSetData(ResultSet result){
 
         User user = null;
 
@@ -81,7 +81,6 @@ public class ModelUser {
             connection = dataBase.getConnection();
 
             // Create sql query
-            //String sql = String.format("Select * from USERS u where u.USER_WEB_NAME = '%s'", userName);
             String sql = String.format("Select * from USERS u where u.USER_WEB_NAME = '%s'", userName);
             query = connection.createStatement();
 
@@ -89,9 +88,9 @@ public class ModelUser {
             result = query.executeQuery(sql);
 
             if (result.next()){
-                System.out.println("\nCREANDO OBJETO");
-                user = createUserFromQuery(result);
+                user = createUserFromResultSetData(result);
             }
+            else throw new Exception("User not found");
 
         }catch (Exception e){
             e.printStackTrace();
@@ -120,7 +119,35 @@ public class ModelUser {
     }
 
     public void updateUser(User user) throws Exception{
+        try {
 
+            // Create connection
+            connection = dataBase.getConnection();
+
+            // Create sql query
+            String sql =
+                    String.format(
+                    "Update USERS set " +
+                            "(" +
+                            "NAME = '%s', " +
+                            "LAST_NAME1 = %s, " +
+                            "LAST_NAME2 = '%s', " +
+                            "ADDRESS = '%s', " +
+                            "EMAIL = '%s', " +
+                            "USER_WEB_NAME = '%s', " +
+                            "USER_PASS = '%s'" +
+                            ")",
+                    user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
+                    user.getEmail(), user.getUserName(), user.getPassword());
+
+            query = connection.createStatement();
+
+            // Execute sql query
+            result = query.executeQuery(sql);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void insertUser(User user){
@@ -131,7 +158,7 @@ public class ModelUser {
 
             // Create sql query
             String sql = String.format(
-                    "Insert into USERS values (%s, %s, %s, %s, %s, %s, %s)",
+                    "Insert into USERS values ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
                     user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
                     user.getEmail(), user.getUserName(), user.getPassword());
 

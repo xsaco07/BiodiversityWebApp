@@ -3,7 +3,7 @@
 
 <html>
     <head>
-        <title>New user</title>
+        <title>Update user</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../../assets/css/main.css" />
@@ -25,34 +25,35 @@
             <!-- Register -->
             <article id="register" class="panel">
                 <header>
-                    <h2>New user</h2>
+                    <h2>Update user</h2>
                 </header>
                 <form action="/UserController" method="post">
 
-                    <input type="hidden" name="action" value="insert">
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="username" value="${user.userName}">
 
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="user" placeholder="User name" />
+                                <input disabled type="text" name="user" value="${user.userName}" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="password" name="pass" placeholder="Password" />
+                                <input type="password" name="pass" placeholder="Password"  value="${user.password}"/>
                             </div>
                             <div class="col-12">
-                                <input type="text" name="name" placeholder="Name" />
+                                <input type="text" name="name" placeholder="Name" value="${user.name}"/>
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="last_name1" placeholder="First last name" />
+                                <input type="text" name="last_name1" placeholder="First last name" value="${user.lastName1}" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="last_name2" placeholder="Second last name" />
+                                <input type="text" name="last_name2" placeholder="Second last name" value="${user.lastName2}"/>
                             </div>
                             <div class="col-12">
-                                <input type="text" name="email" placeholder="Email" />
+                                <input type="text" name="email" placeholder="Email" value="${user.email}"/>
                             </div>
                             <div class="col-12">
-                                <textarea name="address" placeholder="Address" rows="6"></textarea>
+                                <textarea name="address" placeholder="Address" rows="6" >value="${user.address}"</textarea>
                             </div>
                             <div class="col-12">
                                 <input type="submit" value="Finish" />

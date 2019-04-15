@@ -39,6 +39,26 @@ public class UserController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String action = request.getParameter("action");
+
+        switch (action){
+            case "insert":
+                insertingUser(request, response);
+                break;
+            case "load":
+                loadUserData(request, response);
+                break;
+            case "upload":
+                updateUser(request, response);
+                break;
+            case "delete":
+                deletingUser(request, response);
+                break;
+            default:
+                listUsers(request, response);
+                break;
+        }
+
     }
 
     private void insertingUser(HttpServletRequest request, HttpServletResponse response){
@@ -51,7 +71,6 @@ public class UserController extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
 
-        // User name is the unique id
         User user = new User(userName, password, realName, lastName1, lastName2, address, email);
 
         try {
@@ -64,9 +83,9 @@ public class UserController extends HttpServlet {
         }
     }
 
-    private void selectingUsers(HttpServletRequest request, HttpServletResponse response){
+    private void listUsers(HttpServletRequest request, HttpServletResponse response){
 
-        List<User> users = null;
+        List<User> users;
         try {
             users = modelUser.getAllUsers();
 
@@ -74,7 +93,7 @@ public class UserController extends HttpServlet {
 
             // Send data to jsp file
 
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/userList.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("userList.jsp");
 
             requestDispatcher.forward(request, response);
 
@@ -85,6 +104,7 @@ public class UserController extends HttpServlet {
     }
 
     private void deletingUser(HttpServletRequest request, HttpServletResponse response){
+
         String userName = request.getParameter("user");
 
         try {
@@ -96,7 +116,46 @@ public class UserController extends HttpServlet {
         }
     }
 
-    private void updatingUser(HttpServletRequest request, HttpServletResponse response){
+    private void loadUserData(HttpServletRequest request, HttpServletResponse response){
 
+        User user;
+        // Get the username from the list of users linked in the request
+        String username = request.getParameter("username");
+
+        try {
+            user = modelUser.getUser(username);
+
+            request.setAttribute("user", user);
+
+            // Send data to jsp updating form page
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("UpdateUser.jsp");
+
+            requestDispatcher.forward(request, response);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void updateUser(HttpServletRequest request, HttpServletResponse response){
+        String userName = request.getParameter("user");
+        String password = request.getParameter("pass");
+        String realName = request.getParameter("name");
+        String lastName1 = request.getParameter("last_name1");
+        String lastName2 = request.getParameter("last_name2");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+
+        User user = new User(userName, password, realName, lastName1, lastName2, address, email);
+
+        try {
+
+            modelUser.updateUser(user);
+            response.sendRedirect("index.jsp#users");
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

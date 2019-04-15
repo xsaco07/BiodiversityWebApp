@@ -17,7 +17,7 @@
         <!--Link the userName to the request when updating-->
         <c:url var="linkUpdate" value="UserController">
 
-            <c:param name="action" value="update"/>
+            <c:param name="action" value="load"/>
             <c:param name="username" value="${User.username}"/>
 
         </c:url>
