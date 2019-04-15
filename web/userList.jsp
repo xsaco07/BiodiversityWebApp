@@ -14,6 +14,22 @@
 
     <c:forEach var="User" items="${userList}">
 
+        <!--Link the userName to the request when updating-->
+        <c:url var="linkUpdate" value="UserController">
+
+            <c:param name="action" value="update"/>
+            <c:param name="username" value="${User.username}"/>
+
+        </c:url>
+
+        <!--Link the userName to the request when deleting-->
+        <c:url var="linkDelete" value="UserController">
+
+            <c:param name="action" value="delete"/>
+            <c:param name="username" value="${User.username}"/>
+
+        </c:url>
+
         <tr>
             <td>${User.name}</td>
             <td>${User.lastName1}</td>
@@ -22,8 +38,8 @@
             <td>${User.email}</td>
             <td>${User.userName}</td>
             <td>${User.password}</td>
-            <td><a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-trash-o"></a></td>
-            <td><a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-pencil"></a></td>
+            <td><a href="${linkDelete}" class="icon fa-trash-o"></a></td>
+            <td><a href="${linkUpdate}" class="icon fa-pencil"></a></td>
 
         </tr>
 

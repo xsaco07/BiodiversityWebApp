@@ -101,14 +101,14 @@ public class ModelUser {
 
     }
 
-    public void deleteUser(User user) throws Exception{
+    public void deleteUser(String username) throws Exception{
         try {
 
             // Create connection
             connection = dataBase.getConnection();
 
             // Create sql query
-            String sql = String.format("Delete from USERS U where U.NAME = '%s'", user.getUserName());
+            String sql = String.format("Delete from USERS U where U.NAME = '%s'", username);
             query = connection.createStatement();
 
             // Execute sql query

@@ -85,6 +85,18 @@ public class UserController extends HttpServlet {
     }
 
     private void deletingUser(HttpServletRequest request, HttpServletResponse response){
+        String userName = request.getParameter("user");
+
+        try {
+            modelUser.deleteUser(userName);
+            response.sendRedirect("index.jsp#users");
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void updatingUser(HttpServletRequest request, HttpServletResponse response){
 
     }
 }
