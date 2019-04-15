@@ -4,6 +4,7 @@ import com.isaacmena.Model.ModelUser;
 import com.isaacmena.Model.User;
 
 import javax.annotation.Resource;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/UserController")
 public class UserController extends HttpServlet {
@@ -31,6 +33,15 @@ public class UserController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    private void insertingUser(HttpServletRequest request, HttpServletResponse response){
         String userName = request.getParameter("user");
         String password = request.getParameter("pass");
         String realName = request.getParameter("name");
@@ -39,13 +50,29 @@ public class UserController extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
 
+        // User name is the unique id
         User user = new User(userName, password, realName, lastName1, lastName2, address, email);
 
         modelUser.insertUser(user);
-
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void selectingUsers(HttpServletRequest request, HttpServletResponse response){
+
+        List<User> users = null;
+        try {
+            users = modelUser.getAllUsers();
+
+            request.setAttribute("userList", users);
+
+            // Send data to jsp file
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/userList.jsp");
+
+            requestDispatcher.forward(request, response);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 }

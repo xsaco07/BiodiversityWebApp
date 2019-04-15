@@ -52,7 +52,7 @@ public class ModelUser {
         User user = null;
 
         try {
-
+            // TODO update column indexes because there wont be user id any more
             String userName = result.getString(7);
             String password = result.getString(8);
             String name = result.getString(2);

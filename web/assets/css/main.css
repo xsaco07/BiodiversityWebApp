@@ -1441,6 +1441,8 @@ input, select, textarea {
 
 	table {
 		width: 100%;
+		text-align: center;
+		align-content: center;
 	}
 
 		table.default tbody tr {

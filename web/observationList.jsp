@@ -1,0 +1,43 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%--<table>
+    <tr>
+        <td>NAME</td>
+        <td>LAST NAME</td>
+        <td>LAST NAME</td>
+        <td>ADDRESS</td>
+        <td>EMAIL</td>
+        <td>USER NAME</td>
+        <td>PASSWORD</td>
+    </tr>
+
+    <c:forEach var="User" items="${users}">
+
+        <tr>
+            <td>${User.name}</td>
+            <td>${User.lastName1}</td>
+            <td>${User.lastName2}</td>
+            <td>${User.address}</td>
+            <td>${User.email}</td>
+            <td>${User.userName}</td>
+            <td>${User.password}</td>
+        </tr>
+
+    </c:forEach>
+
+</table>--%>
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>USER</td>
+        <td>LATITUDE</td>
+        <td>LONGITUDE</td>
+        <td>DATE</td>
+        <td>TAXON</td>
+        <td>SPECIE</td>
+        <td>IMAGE URL</td>
+        <td>OPERATION</td>
+    </tr>
+</table>

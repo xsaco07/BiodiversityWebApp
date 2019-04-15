@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
+
     <head>
       <title>Taxon</title>
       <meta charset="utf-8" />
@@ -7,6 +9,7 @@
       <link rel="stylesheet" href="assets/css/main.css" />
       <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
+
     <body class="is-preload">
 
     <!-- Wrapper-->
@@ -37,140 +40,23 @@
 
         <!-- Observations -->
         <article id="observations" class="panel">
+
           <header>
             <h2>List of observations</h2>
           </header>
+
           <p>
             This is the full list of observations made by all the users.
             Below you can add new ones, delete or update the existing.
           </p>
+
           <section>
-            <%--<div class="row">
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
-                <h3>Nombre</h3>
-              </div>
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-                <h3>Nombre</h3>
-              </div>
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-                <h3>Nombre</h3>
-              </div>
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="#" class="icon fa-plus-circle"></a>
-              </div>
-            </div>--%>
 
+              <%@include file="observationList.jsp"%>
 
-              <table>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td>Hola</td>
-                  <td><a href="#">Update</a></td>
-                  <td><a href="#">Delete</a></td>
-                </tr>
-              </table>
-
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="#" class="icon fa-plus"></a>
-              </div>
-
+            <div class="col-4 col-6-medium col-12-small">
+              <a href="#" class="icon fa-plus"></a>
+            </div>
 
           </section>
 
@@ -179,118 +65,16 @@
         <!-- Users -->
         <article id="users" class="panel">
           <header>
-            <h2>List of the current registered users</h2>
+            <h2>Registered users</h2>
           </header>
 
           <section>
 
-            <table>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-              <tr>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td>Hola</td>
-                <td><a href="#">Update</a></td>
-                <td><a href="#">Delete</a></td>
-              </tr>
-            </table>
+            <%@include file="userList.jsp"%>
 
             <div class="col-4 col-6-medium col-12-small">
               <a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-plus"></a>
             </div>
-
 
           </section>
 

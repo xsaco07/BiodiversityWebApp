@@ -31,14 +31,10 @@ public class ServletLogin extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String userName = request.getParameter("user");
-        String password = request.getParameter("pass");
 
-        if(userName.length() == 0 || password.length() == 0){
-            response.sendRedirect("View/UserJSPs/login.jsp");
-        }
-        else {
-
+        if(dataOK(request)){
             User currentUser = null;
 
             try {
@@ -52,11 +48,20 @@ public class ServletLogin extends HttpServlet {
             if (currentUser == null) response.sendRedirect("View/UserJSPs/login.jsp");
             else response.sendRedirect("index.jsp");
         }
+        else {
+            response.sendRedirect("View/UserJSPs/login.jsp");
+        }
 
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    }
+
+    private boolean dataOK(HttpServletRequest request){
+        String userName = request.getParameter("user");
+        String password = request.getParameter("pass");
+        return userName.length() > 0 && password.length() > 0;
     }
 }
