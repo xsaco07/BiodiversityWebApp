@@ -74,7 +74,7 @@ public class ModelUser {
     public User getUser(String userName) throws Exception{
 
         User user = null;
-        System.out.println("\nUSER NAME " + userName);
+
         try {
 
             // Create connection
@@ -101,14 +101,14 @@ public class ModelUser {
 
     }
 
-    public void deleteUser(String name) throws Exception{
+    public void deleteUser(User user) throws Exception{
         try {
 
             // Create connection
             connection = dataBase.getConnection();
 
             // Create sql query
-            String sql = String.format("Delete from USERS U where U.NAME = '%s'", name);
+            String sql = String.format("Delete from USERS U where U.NAME = '%s'", user.getUserName());
             query = connection.createStatement();
 
             // Execute sql query
@@ -119,11 +119,11 @@ public class ModelUser {
         }
     }
 
-    public void updateUser(String name) throws Exception{
+    public void updateUser(User user) throws Exception{
 
     }
 
-    public void insertUser(String userName, String password, String name, String lastName1, String lastName2, String address, String email){
+    public void insertUser(User user){
         try {
 
             // Create connection
@@ -132,7 +132,8 @@ public class ModelUser {
             // Create sql query
             String sql = String.format(
                     "Insert into USERS values (%s, %s, %s, %s, %s, %s, %s)",
-                    name, lastName1, lastName2, address, email, userName, password);
+                    user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
+                    user.getEmail(), user.getUserName(), user.getPassword());
 
             query = connection.createStatement();
 

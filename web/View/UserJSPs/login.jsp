@@ -49,7 +49,7 @@
                 <header>
                     <h2>New user</h2>
                 </header>
-                <form action="ServletRegisterUser" method="post">
+                <form action="/UserController" method="post">
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
