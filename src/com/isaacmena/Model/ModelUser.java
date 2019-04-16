@@ -136,7 +136,7 @@ public class ModelUser {
             // Create sql query
             String sql =
                     String.format(
-                    "Update USERS set " +
+                    "Update USERS u set " +
                             "(" +
                             "NAME = '%s', " +
                             "LAST_NAME1 = %s, " +
@@ -145,9 +145,9 @@ public class ModelUser {
                             "EMAIL = '%s', " +
                             "USER_WEB_NAME = '%s', " +
                             "USER_PASS = '%s'" +
-                            ")",
+                            ") where u.USER_WEB_NAME = '%s'",
                     user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
-                    user.getEmail(), user.getUserName(), user.getPassword());
+                    user.getEmail(), user.getUserName(), user.getPassword(), user.getUserName());
 
             query = connection.createStatement();
 

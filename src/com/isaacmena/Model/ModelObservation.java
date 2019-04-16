@@ -136,7 +136,7 @@ public class ModelObservation {
             // Create sql query
             String sql =
                     String.format(
-                            "Update OBSERVATION set " +
+                            "Update OBSERVATION o set " +
                                     "(" +
                                     "LATITUDE = '%s', " +
                                     "LONGITUDE = %s, " +
@@ -144,9 +144,9 @@ public class ModelObservation {
                                     "SPECIE_NAME = '%s', " +
                                     "USER_NAME = '%s', " +
                                     "IMAGE_URL = '%s', " +
-                                    ")",
+                                    ") where o.OBSERVATION_ID = %s",
                             observation.getLatitude(), observation.getLongitud(), observation.getDate(), observation.getSpecieName(),
-                            observation.getUserName(), observation.getImageURL());
+                            observation.getUserName(), observation.getImageURL(), observation.getObservationId());
 
             query = connection.createStatement();
 

@@ -10,6 +10,7 @@ public class Observation {
     private String specieName;
     private String userName;
     private String imageURL;
+    private int observationId;
 
     public Observation(String latitude, String longitud, Date date, String specieName, String userName, String imageURL) {
         this.latitude = latitude;
@@ -18,6 +19,16 @@ public class Observation {
         this.specieName = specieName;
         this.userName = userName;
         this.imageURL = imageURL;
+    }
+
+    public Observation(int observationId, String latitude, String longitud, Date date, String specieName, String userName, String imageURL) {
+        this.latitude = latitude;
+        this.longitud = longitud;
+        this.date = date;
+        this.specieName = specieName;
+        this.userName = userName;
+        this.imageURL = imageURL;
+        this.observationId = observationId;
     }
 
     public String getLatitude() {
@@ -67,4 +78,8 @@ public class Observation {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
+
+    public int getObservationId() { return observationId; }
+
+    public void setObservationId(int observationId) { this.observationId = observationId; }
 }
