@@ -20,6 +20,7 @@
         <a href="#" class="icon fa-home"><span>Home</span></a>
         <a href="#observations" class="icon fa-search"><span>Observations</span></a>
         <a href="#users" class="icon fa-user"><span>User settings</span></a>
+        <a href="#images" class="icon fa-image"><span>Images</span></a>
       </nav>
 
       <!-- Main -->
@@ -51,10 +52,12 @@
 
           <section>
 
-              <%@include file="observationList.jsp"%>
+            <!--Todo: incluir archivo jsp con lista de imagenes almacenadas en mongo-->
 
-            <div class="col-4 col-6-medium col-12-small">
-              <a href="#" class="icon fa-plus"></a>
+            <div class="row">
+              <div class="col-4 col-6-medium col-12-small">
+                <a href="View/ObservationJSPs/RegisterObservation.jsp" class="icon fa-plus"></a>
+              </div>
             </div>
 
           </section>
@@ -71,8 +74,30 @@
 
             <%@include file="userList.jsp"%>
 
-            <div class="col-4 col-6-medium col-12-small">
-              <a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-plus"></a>
+            <div class="row">
+              <div class="col-4 col-6-medium col-12-small">
+                <a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-plus"></a>
+              </div>
+            </div>
+
+          </section>
+
+        </article>
+
+        <!-- Users -->
+        <article id="images" class="panel">
+          <header>
+            <h2>Specie images</h2>
+          </header>
+
+          <section>
+
+            <%@include file="userList.jsp"%>
+
+            <div class="row">
+              <div class="col-4 col-6-medium col-12-small">
+                <a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-plus"></a>
+              </div>
             </div>
 
           </section>
