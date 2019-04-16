@@ -1375,8 +1375,12 @@ input, select, textarea {
 	}
 
 	h2 {
-		font-size: 1.8em;
+		font-size: 2em;
 		letter-spacing: -0.015em;
+		background-color: #d7d7d7;
+		padding: 10px;
+		border-radius: 15px;
+		text-align: center;
 	}
 
 	h3, h4, h5, h6 {

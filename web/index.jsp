@@ -52,7 +52,7 @@
 
           <section>
 
-            <!--Todo: incluir archivo jsp con lista de imagenes almacenadas en mongo-->
+            <%@include file="observationList.jsp"%>
 
             <div class="row">
               <div class="col-4 col-6-medium col-12-small">
@@ -84,7 +84,7 @@
 
         </article>
 
-        <!-- Users -->
+        <!-- Images -->
         <article id="images" class="panel">
           <header>
             <h2>Specie images</h2>
@@ -92,7 +92,7 @@
 
           <section>
 
-            <%@include file="userList.jsp"%>
+            <%@include file="imageList.jsp"%>
 
             <div class="row">
               <div class="col-4 col-6-medium col-12-small">
