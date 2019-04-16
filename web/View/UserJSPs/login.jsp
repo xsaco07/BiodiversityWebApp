@@ -37,11 +37,11 @@
                             </div>
                             <div class="col-12">
                                 <input type="submit" value="Access" />
+                                <input type="button" value="Sign Up" onclick="window.location.href='../../View/UserJSPs/RegisterUser.jsp'" style="padding: 15px; background: #444444; border: #888888; border-radius: 10px">
                             </div>
                         </div>
                     </div>
                 </form>
-                <a href="RegisterUser.jsp">Sign Up</a>
             </article>
 
         </div>

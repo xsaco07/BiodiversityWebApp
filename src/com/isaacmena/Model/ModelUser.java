@@ -47,7 +47,7 @@ public class ModelUser {
 
     }
 
-    private User createUserFromResultSetData(ResultSet result){
+    private User createUserFromResultSetData(ResultSet result) throws Exception{
 
         User user = null;
 
@@ -150,7 +150,7 @@ public class ModelUser {
         }
     }
 
-    public void insertUser(User user){
+    public void insertUser(User user) throws Exception{
         try {
 
             // Create connection
