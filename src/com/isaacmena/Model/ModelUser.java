@@ -41,6 +41,9 @@ public class ModelUser {
 
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
         }
 
         return users;
@@ -94,6 +97,9 @@ public class ModelUser {
 
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
         }
 
         return user;
@@ -115,6 +121,9 @@ public class ModelUser {
 
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
         }
     }
 
@@ -147,6 +156,9 @@ public class ModelUser {
 
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
         }
     }
 
@@ -169,6 +181,9 @@ public class ModelUser {
 
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
         }
     }
 
