@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>New user</title>
+        <title>New image</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../../assets/css/main.css" />
@@ -15,7 +15,7 @@
 
         <!-- Nav -->
         <nav id="nav">
-            <a href="#register" class="icon fa-user-plus"><span>Register</span></a>
+            <a href="#register" class="icon fa-plus-square"><span>Register</span></a>
         </nav>
 
         <!-- Main -->
@@ -24,34 +24,31 @@
             <!-- Register -->
             <article id="register" class="panel">
                 <header>
-                    <h2>New user</h2>
+                    <h2>New image</h2>
                 </header>
-                <form action="/UserController" method="post">
+                <form action="/ImageController" method="post">
 
                     <input type="hidden" name="action" value="insert">
 
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="user" placeholder="User name" />
+                                <input type="text" name="url" placeholder="URL" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="password" name="pass" placeholder="Password" />
+                                <input type="text" name="photographer" placeholder="Photographer" />
                             </div>
                             <div class="col-12">
-                                <input type="text" name="name" placeholder="Name" />
+                                <input type="date" name="date" placeholder="Date" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="last_name1" placeholder="First last name" />
+                                <input type="text" name="country" placeholder="Country" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="last_name2" placeholder="Second last name" />
+                                <input type="text" name="province" placeholder="Province" />
                             </div>
                             <div class="col-12">
-                                <input type="text" name="email" placeholder="Email" />
-                            </div>
-                            <div class="col-12">
-                                <textarea name="address" placeholder="Address" rows="6"></textarea>
+                                <input type="text" name="owner" placeholder="Owner name" />
                             </div>
                             <div class="col-12">
                                 <input type="submit" value="Finish" />
@@ -81,4 +78,5 @@
 
     </body>
 </html>
+
 

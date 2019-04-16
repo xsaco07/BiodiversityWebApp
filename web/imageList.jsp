@@ -46,8 +46,8 @@
             <br>
                 ${Image.owner}
             <br>
-            <a href="#" style="margin: 8px" class="icon fa-trash-o"></a>
-            <a href="#" style="margin: 8px" class="icon fa-pencil"></a>
+            <a href="${linkDelete}" style="margin: 8px" class="icon fa-trash-o"></a>
+            <a href="${linkUpdate}" style="margin: 8px" class="icon fa-pencil"></a>
 
         </div>
 

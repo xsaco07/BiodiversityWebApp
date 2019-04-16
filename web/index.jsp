@@ -70,6 +70,11 @@
             <h2>Registered users</h2>
           </header>
 
+          <p>
+            This is the full list of users.
+            Below you can add new ones, delete or update the existing.
+          </p>
+
           <section>
 
             <%@include file="userList.jsp"%>

@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>New user</title>
+        <title>Update image</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../../assets/css/main.css" />
@@ -24,34 +24,35 @@
             <!-- Register -->
             <article id="register" class="panel">
                 <header>
-                    <h2>New user</h2>
+                    <h2>Update image</h2>
                 </header>
-                <form action="/UserController" method="post">
+                <form action="/ImageController" method="post">
 
-                    <input type="hidden" name="action" value="insert">
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="imageId" value="${image.userName}">
 
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="user" placeholder="User name" />
+                                <input disabled type="text" name="imageId" placeholder="ImageId" value="${image.imageId}" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="password" name="pass" placeholder="Password" />
-                            </div>
-                            <div class="col-12">
-                                <input type="text" name="name" placeholder="Name" />
+                                <input type="text" name="url" placeholder="URL" value="${image.imageURL}"/>
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="last_name1" placeholder="First last name" />
+                                <input type="text" name="photographer" placeholder="Photographer" value="${image.photographerName}"/>
+                            </div>
+                            <div class="col-12">
+                                <input type="date" name="date" placeholder="Date" value="${image.date}"/>
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="last_name2" placeholder="Second last name" />
+                                <input type="text" name="country" placeholder="Country" value="${image.country}"/>
+                            </div>
+                            <div class="col-6 col-12-medium">
+                                <input type="text" name="province" placeholder="Province" value="${image.province}"/>
                             </div>
                             <div class="col-12">
-                                <input type="text" name="email" placeholder="Email" />
-                            </div>
-                            <div class="col-12">
-                                <textarea name="address" placeholder="Address" rows="6"></textarea>
+                                <input type="text" name="owner" placeholder="Owner name" value="${image.owner}"/>
                             </div>
                             <div class="col-12">
                                 <input type="submit" value="Finish" />
@@ -81,4 +82,5 @@
 
     </body>
 </html>
+
 
