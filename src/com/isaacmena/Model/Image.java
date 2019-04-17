@@ -1,5 +1,7 @@
 package com.isaacmena.Model;
 
+import com.mongodb.BasicDBObject;
+
 import java.util.*;
 
 public class Image {
@@ -32,6 +34,17 @@ public class Image {
         this.country = country;
         this.province = province;
         this.ownerName = ownerName;
+    }
+
+    public BasicDBObject toBasicDBObject(){
+        return new BasicDBObject("id", this.getImageId())
+                    .append("url", this.getImageURL())
+                    .append("photographerName", this.getPhtographerName())
+                    .append("specieName", this.getSpecieName())
+                    .append("date", this.getDate())
+                    .append("country", this.getCountry())
+                    .append("province", this.getProvince())
+                    .append("owner", this.getOwnerName());
     }
 
     public int getImageId() {

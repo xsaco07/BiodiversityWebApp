@@ -1,5 +1,7 @@
 package com.isaacmena.Controller;
 
+import com.isaacmena.Model.ModelImage;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,9 @@ import java.io.IOException;
 
 @WebServlet("/ImageController")
 public class ImageController extends HttpServlet {
+
+    private ModelImage modelImage;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -16,4 +21,7 @@ public class ImageController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
+
+
 }
