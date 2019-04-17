@@ -36,7 +36,7 @@
             <br>
             <b>Date</b>
             <br>
-                ${}
+                ${Image.date}
             <br>
             <b>Took in</b>
             <br>

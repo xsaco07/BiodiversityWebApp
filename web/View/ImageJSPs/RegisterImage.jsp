@@ -38,6 +38,9 @@
                             <div class="col-6 col-12-medium">
                                 <input type="text" name="photographer" placeholder="Photographer" />
                             </div>
+                            <div class="col-6 col-12-medium">
+                                <input type="text" name="specieName" placeholder="Specie name" />
+                            </div>
                             <div class="col-12">
                                 <input type="date" name="date" placeholder="Date" />
                             </div>
