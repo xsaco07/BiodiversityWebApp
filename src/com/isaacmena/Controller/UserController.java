@@ -76,7 +76,7 @@ public class UserController extends HttpServlet {
         try {
 
             modelUser.insertUser(user);
-            response.sendRedirect("index.jsp#users");
+            listUsers(request, response);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -109,7 +109,7 @@ public class UserController extends HttpServlet {
 
         try {
             modelUser.deleteUser(userName);
-            response.sendRedirect("index.jsp#users");
+            listUsers(request, response);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -152,7 +152,7 @@ public class UserController extends HttpServlet {
         try {
 
             modelUser.updateUser(user);
-            response.sendRedirect("index.jsp#users");
+            listUsers(request, response);
 
         }catch (Exception e){
             e.printStackTrace();

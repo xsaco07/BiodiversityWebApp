@@ -14,9 +14,6 @@ import java.util.List;
 
 public class ModelImage {
 
-    public ModelImage() {
-    }
-
     private static Image createImageFromCursorData(BasicDBObject cursorData){
 
         Image image = null;

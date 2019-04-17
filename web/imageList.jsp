@@ -6,7 +6,7 @@
 
     <c:forEach var="Image" items="${imageList}">
 
-        <!--Link the userName to the request when updating-->
+        <!--Link the imageId to the request when updating-->
         <c:url var="linkUpdate" value="ImageController">
 
             <c:param name="action" value="load"/>
@@ -14,7 +14,7 @@
 
         </c:url>
 
-        <!--Link the userName to the request when deleting-->
+        <!--Link the imageId to the request when deleting-->
         <c:url var="linkDelete" value="ImageController">
 
             <c:param name="action" value="delete"/>
@@ -24,7 +24,7 @@
 
 
         <div class="col-4 col-6-medium col-12-small">
-            <a href="#" class="image fit"><img width="200" height="175" src="https://www.niabizoo.com/wp-content/uploads/2018/05/ms-animals-habitats-mammals.jpg" alt=""></a>
+            <a href="#" class="image fit"><img width="200" height="175" src="${Image.imageURL}" alt=""></a>
 
             <b>Photographer</b>
             <br>

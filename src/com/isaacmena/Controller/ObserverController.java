@@ -80,7 +80,7 @@ public class ObserverController extends HttpServlet {
         try {
 
             modelObservation.insertObservation(observation);
-            response.sendRedirect("index.jsp#observations");
+            listObservations(request, response);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -113,7 +113,7 @@ public class ObserverController extends HttpServlet {
 
         try {
             modelObservation.deleteObservation(observationId);
-            response.sendRedirect("index.jsp#observations");
+            listObservations(request, response);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -159,7 +159,7 @@ public class ObserverController extends HttpServlet {
         try {
 
             modelObservation.updateObservation(observation);
-            response.sendRedirect("index.jsp#observations");
+            listObservations(request, response);
 
         }catch (Exception e){
             e.printStackTrace();
