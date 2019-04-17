@@ -20,6 +20,7 @@ public class ModelImage {
 
         try {
 
+            String imageId = cursorData.getString("_id");
             String imageURL = cursorData.getString("url");
             String photographerName = cursorData.getString("photographerName");
             String specieName = cursorData.getString("specieName");
@@ -28,7 +29,7 @@ public class ModelImage {
             String province = cursorData.getString("province");
             String ownerName = cursorData.getString("owner");
 
-            image = new Image(imageURL, photographerName, specieName, date, country, province, ownerName);
+            image = new Image(imageId, imageURL, photographerName, specieName, date, country, province, ownerName);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -111,7 +112,7 @@ public class ModelImage {
             // Get the collection of images
             imageCollection = database.getCollection("ImagesCollection");
 
-            imageCollection.updateOne(Filters.eq("id", image.getImageId()),
+            imageCollection.updateOne(Filters.eq("_id", image.getImageId()),
                     Updates.combine(Updates.set("url", image.getImageURL()),
                             Updates.set("photographerName", image.getPhtographerName()),
                             Updates.set("specieName", image.getSpecieName()),
@@ -126,7 +127,7 @@ public class ModelImage {
         }
     }
 
-    public static Image getImage(int imageId) throws Exception{
+    public static Image getImage(String imageId) throws Exception{
 
         MongoCollection imageCollection;
         MongoDatabase database;
@@ -145,7 +146,7 @@ public class ModelImage {
             // Get the collection of images
             imageCollection = database.getCollection("ImagesCollection");
 
-            BasicDBObject objectSearched = new BasicDBObject("id", imageId);
+            BasicDBObject objectSearched = new BasicDBObject("_id", imageId);
 
             iterator = imageCollection.find(objectSearched);
 
@@ -164,7 +165,7 @@ public class ModelImage {
 
     }
 
-    public static void deleteImage(int imageId) throws Exception{
+    public static void deleteImage(String imageId) throws Exception{
 
         MongoCollection imageCollection;
         MongoDatabase database;
@@ -179,7 +180,7 @@ public class ModelImage {
             // Get the collection of images
             imageCollection = database.getCollection("ImagesCollection");
 
-            BasicDBObject objectToDelete = new BasicDBObject("id", imageId);
+            BasicDBObject objectToDelete = new BasicDBObject("_id", imageId);
 
             imageCollection.deleteOne(objectToDelete);
 

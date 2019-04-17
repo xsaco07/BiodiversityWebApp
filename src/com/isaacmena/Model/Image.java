@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Image {
 
-    private int imageId;
+    private String imageId;
     private String imageURL;
     private String phtographerName;
     private String specieName;
@@ -15,7 +15,7 @@ public class Image {
     private String province;
     private String ownerName;
 
-    public Image(int imageId, String imageURL, String phtographerName, String specieName, Date date, String country, String province, String ownerName) {
+    public Image(String imageId, String imageURL, String phtographerName, String specieName, Date date, String country, String province, String ownerName) {
         this.imageId = imageId;
         this.imageURL = imageURL;
         this.phtographerName = phtographerName;
@@ -37,8 +37,7 @@ public class Image {
     }
 
     public BasicDBObject toBasicDBObject(){
-        return new BasicDBObject("id", this.getImageId())
-                    .append("url", this.getImageURL())
+        return new BasicDBObject("url", this.getImageURL())
                     .append("photographerName", this.getPhtographerName())
                     .append("specieName", this.getSpecieName())
                     .append("date", this.getDate())
@@ -47,11 +46,11 @@ public class Image {
                     .append("owner", this.getOwnerName());
     }
 
-    public int getImageId() {
+    public String getImageId() {
         return imageId;
     }
 
-    public void setImageId(int imageId) {
+    public void setImageId(String imageId) {
         this.imageId = imageId;
     }
 

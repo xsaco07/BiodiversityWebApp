@@ -91,7 +91,7 @@ public class ImageController extends HttpServlet {
 
     private void deletingImages(HttpServletRequest request, HttpServletResponse response){
 
-        int imageId = Integer.parseInt(request.getParameter("imageId"));
+        String imageId = request.getParameter("imageId");
 
         try {
             ModelImage.deleteImage(imageId);
@@ -104,10 +104,10 @@ public class ImageController extends HttpServlet {
 
     private void loadImageData(HttpServletRequest request, HttpServletResponse response){
 
-        Image image
-                ;
+        Image image;
+
         // Get the image id from the list of users linked in the request
-        int imageId = Integer.parseInt(request.getParameter("imageId"));
+        String imageId = request.getParameter("imageId");
 
         try {
             image = ModelImage.getImage(imageId);
@@ -127,7 +127,7 @@ public class ImageController extends HttpServlet {
 
     private void updateImage(HttpServletRequest request, HttpServletResponse response){
 
-        int imageId = Integer.parseInt(request.getParameter("imageId"));
+        String imageId = request.getParameter("imageId");
         String imageUrl = request.getParameter("url");
         String photographerName = request.getParameter("photographer");
         String specieName = request.getParameter("specieName");

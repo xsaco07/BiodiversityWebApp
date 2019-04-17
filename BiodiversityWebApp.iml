@@ -50,7 +50,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/mongo-java-driver-3.10.0.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/mongo-java-driver-3.10.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

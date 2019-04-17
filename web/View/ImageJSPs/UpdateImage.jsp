@@ -29,7 +29,7 @@
                 <form action="/ImageController" method="post">
 
                     <input type="hidden" name="action" value="update">
-                    <input type="hidden" name="imageId" value="${image.userName}">
+                    <input type="hidden" name="imageId" value="${image.imageId}">
 
                     <div>
                         <div class="row">
