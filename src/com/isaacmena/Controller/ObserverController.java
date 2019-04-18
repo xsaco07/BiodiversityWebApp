@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -68,9 +70,7 @@ public class ObserverController extends HttpServlet {
 
         String latitude = request.getParameter("latitude");
         String longitude = request.getParameter("longitude");
-        // Todo set date appropriately
-        Date date = null;
-        //Date date = request.getParameter("date");
+        Date date = getDateFromForm(request);
         String specieName = request.getParameter("specie");
         String userName = request.getParameter("userName");
         String imageUrl = request.getParameter("imageURL");
@@ -147,9 +147,7 @@ public class ObserverController extends HttpServlet {
         int observationId = Integer.parseInt(request.getParameter("observationId"));
         String latitude = request.getParameter("latitude");
         String longitude = request.getParameter("longitude");
-        // Todo set date appropriately
-        Date date = null;
-        //Date date = request.getParameter("date");
+        Date date = getDateFromForm(request);
         String specieName = request.getParameter("specie");
         String userName = request.getParameter("userName");
         String imageUrl = request.getParameter("imageURL");
@@ -164,6 +162,20 @@ public class ObserverController extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private Date getDateFromForm(HttpServletRequest request){
+
+        SimpleDateFormat format = new SimpleDateFormat("mm/dd/yyyy");
+
+        try {
+            return format.parse(request.getParameter("date"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
     }
 
 }

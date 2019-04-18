@@ -57,14 +57,15 @@ public class ModelObservation {
 
         try {
 
-            String latitude = result.getString(1);
-            String longitude = result.getString(2);
-            Date date = result.getDate(3);
-            String specieName = result.getString(4);
-            String userName = result.getString(5);
-            String imageUrl = result.getString(6);
+            int observationId = result.getInt(1);
+            String latitude = result.getString(2);
+            String longitude = result.getString(3);
+            Date date = result.getDate(4);
+            String specieName = result.getString(5);
+            String userName = result.getString(6);
+            String imageUrl = result.getString(7);
 
-            observation = new Observation(latitude, longitude, date, specieName, userName, imageUrl);
+            observation = new Observation(observationId, latitude, longitude, date, specieName, userName, imageUrl);
 
         }catch (Exception e){
             e.printStackTrace();
