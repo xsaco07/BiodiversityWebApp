@@ -42,50 +42,45 @@
         <!-- Observations -->
         <article id="observations" class="panel">
           <header>
-            <h2>List of observations</h2>
+            <h2>Observations</h2>
           </header>
 
-          <p>
-            This is the full list of observations made by all the users.
-            Below you can add new ones, delete or update the existing.
+          <p align="center">
+            Every time a user records any specie any where and want to share it, he or she will
+            make an <b>Observation</b>. You can do it whenever you want. If you made a mistake
+            you can update or delete any observation.
           </p>
 
-          <section>
+            <img style="box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 8px solid #d7d7d7; display: block; margin: 0 auto" src="/assets/css/images/photographer.png" width="400" height="300" alt="">
 
-            <%@include file="observationList.jsp"%>
+            <br>
 
-            <div class="row">
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="View/ObservationJSPs/RegisterObservation.jsp" class="icon fa-plus"></a>
-              </div>
-            </div>
-
-          </section>
+            <form action="/ObserverController" method="get">
+                <input type="hidden" name="action" value="list">
+                <input style="box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" type="submit" value="View all observations">
+            </form>
 
         </article>
 
         <!-- Users -->
         <article id="users" class="panel">
+
           <header>
-            <h2>Registered users</h2>
+            <h2>Users</h2>
           </header>
 
-          <p>
-            This is the full list of users.
-            Below you can add new ones, delete or update the existing.
-          </p>
+            <p align="center">
+                <b>Users</b> can make the observations in this web page.
+            </p>
 
-          <section>
+            <img style="box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 8px solid #d7d7d7; display: block; margin: 0 auto" src="/assets/css/images/user2.jpg" width="250" height="250" alt="">
 
-            <%@include file="userList.jsp"%>
+            <br>
 
-            <div class="row">
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-plus"></a>
-              </div>
-            </div>
-
-          </section>
+            <form action="/UserController" method="get">
+                <input type="hidden" name="action" value="list">
+                <input style="box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" type="submit" value="View all users">
+            </form>
 
         </article>
 
@@ -95,17 +90,19 @@
             <h2>Specie images</h2>
           </header>
 
-          <section>
+            <p align="center">
+                We store <b>Specie Images</b> so the users can look for examples of another photographers.
+                You can add new ones whenever you want or update it if you made a mistake while creating a new one.
+            </p>
 
-            <%@include file="imageList.jsp"%>
+            <img style="border: 8px solid #d7d7d7; box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" src="/assets/css/images/animal.jpg" width="480" height="300" alt="">
 
-            <div class="row">
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-plus"></a>
-              </div>
-            </div>
+            <br>
 
-          </section>
+            <form action="/ImageController" method="get">
+                <input type="hidden" name="action" value="list">
+                <input style="box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" type="submit" value="View gallery">
+            </form>
 
         </article>
 

@@ -46,9 +46,8 @@ blockquote, q {
 		content: none;
 	}
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+table td {
+	border-bottom: 1px double #222222;
 }
 
 body {
