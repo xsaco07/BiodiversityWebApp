@@ -42,7 +42,7 @@
                                 <input type="text" required name="specieName" placeholder="Specie name" />
                             </div>
                             <div class="col-12">
-                                <input type="text" name="date" placeholder="Date" />
+                                <input type="date" required name="date" placeholder="Date" />
                             </div>
                             <div class="col-6 col-12-medium">
                                 <input type="text" name="country" placeholder="Country" />

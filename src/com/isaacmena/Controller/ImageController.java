@@ -150,7 +150,7 @@ public class ImageController extends HttpServlet {
 
     private Date getDateFromForm(HttpServletRequest request){
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             return dateFormat.parse(request.getParameter("date"));
         } catch (ParseException e) {

@@ -122,15 +122,9 @@ public class ModelImage {
             imageCollection = database.getCollection("ImagesCollection");
 
             Document docToUpdate = (Document) imageCollection.find(new Document("_id", new ObjectId(image.getImageId()))).first();
-
-            System.out.println("\nImage found\n");
-
-            //System.out.println("\nURL: " + image.getImageURL() + "\n");
             Bson updatedValue = image.toDocument();
             Bson updateOperation = new Document("$set", updatedValue);
             imageCollection.updateOne(docToUpdate, updateOperation);
-
-            System.out.println("\nUpdated\n");
 
 
         } catch (Exception e) {

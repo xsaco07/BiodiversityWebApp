@@ -60,7 +60,7 @@
 
                                 <br>
 
-                                <div style="text-align: center">
+                                <div style="text-align: center; border: double 7px #cbcbcb">
                                     <b>Photographer</b>
                                     <br>
                                         ${Image.photographerName}

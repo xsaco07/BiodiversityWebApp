@@ -46,7 +46,7 @@
                                 <input type="text" name="specieName" required placeholder="Specie Name" value="${image.specieName}"/>
                             </div>
                             <div class="col-12">
-                                <input type="text" name="date" placeholder="Date" value="${image.dateToString()}"/>
+                                <input type="date" name="date" required placeholder="Date" value="${image.dateToString()}"/>
                             </div>
                             <div class="col-6 col-12-medium">
                                 <input type="text" name="country" placeholder="Country" value="${image.country}"/>
