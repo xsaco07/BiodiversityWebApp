@@ -56,7 +56,7 @@
 
                             <div class="col-4 col-6-medium col-12-small">
 
-                                <a href="#" style="border: 8px solid #d7d7d7; box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" class="image fit"><img src="${Image.imageURL}" alt=""></a>
+                                <a href="#" style="border: 8px solid #d7d7d7; box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" class="image fit"><img src="${Image.imageURL}" width="300" alt=""></a>
 
                                 <br>
 
