@@ -1,49 +1,52 @@
 package com.isaacmena.Model;
 
 import com.mongodb.BasicDBObject;
+import org.bson.Document;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Image {
 
     private String imageId;
     private String imageURL;
-    private String phtographerName;
+    private String photographerName;
     private String specieName;
     private Date date;
     private String country;
     private String province;
-    private String ownerName;
+    private String owner;
 
-    public Image(String imageId, String imageURL, String phtographerName, String specieName, Date date, String country, String province, String ownerName) {
+    public Image(String imageId, String imageURL, String photographerName, String specieName, Date date, String country, String province, String owner) {
         this.imageId = imageId;
         this.imageURL = imageURL;
-        this.phtographerName = phtographerName;
+        this.photographerName = photographerName;
         this.specieName = specieName;
         this.date = date;
         this.country = country;
         this.province = province;
-        this.ownerName = ownerName;
+        this.owner = owner;
     }
 
-    public Image(String imageURL, String phtographerName, String specieName, Date date, String country, String province, String ownerName) {
+    public Image(String imageURL, String photographerName, String specieName, Date date, String country, String province, String owner) {
         this.imageURL = imageURL;
-        this.phtographerName = phtographerName;
+        this.photographerName = photographerName;
         this.specieName = specieName;
         this.date = date;
         this.country = country;
         this.province = province;
-        this.ownerName = ownerName;
+        this.owner = owner;
     }
 
-    public BasicDBObject toBasicDBObject(){
-        return new BasicDBObject("url", this.getImageURL())
-                    .append("photographerName", this.getPhtographerName())
+    public Document toDocument(){
+        return new Document("url", this.getImageURL())
+                    .append("photographerName", this.getPhotographerName())
                     .append("specieName", this.getSpecieName())
-                    .append("date", this.getDate())
+                    .append("date", this.dateToString())
                     .append("country", this.getCountry())
                     .append("province", this.getProvince())
-                    .append("owner", this.getOwnerName());
+                    .append("owner", this.getOwner());
     }
 
     public String getImageId() {
@@ -62,12 +65,12 @@ public class Image {
         this.imageURL = imageURL;
     }
 
-    public String getPhtographerName() {
-        return phtographerName;
+    public String getPhotographerName() {
+        return photographerName;
     }
 
-    public void setPhtographerName(String phtographerName) {
-        this.phtographerName = phtographerName;
+    public void setPhotographerName(String photographerName) {
+        this.photographerName = photographerName;
     }
 
     public String getSpecieName() {
@@ -102,12 +105,17 @@ public class Image {
         this.province = province;
     }
 
-    public String getOwnerName() {
-        return ownerName;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public String dateToString(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        return dateFormat.format(this.date);
     }
 
 }

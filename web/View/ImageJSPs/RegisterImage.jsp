@@ -26,7 +26,7 @@
                 <header>
                     <h2>New image</h2>
                 </header>
-                <form action="/ImageController" method="post">
+                <form action="/ImageController" method="get">
 
                     <input type="hidden" name="action" value="insert">
 
@@ -42,7 +42,7 @@
                                 <input type="text" name="specieName" placeholder="Specie name" />
                             </div>
                             <div class="col-12">
-                                <input type="date" name="date" placeholder="Date" />
+                                <input type="text" name="date" placeholder="Date" />
                             </div>
                             <div class="col-6 col-12-medium">
                                 <input type="text" name="country" placeholder="Country" />

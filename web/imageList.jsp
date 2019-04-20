@@ -18,14 +18,13 @@
 
         <!-- Nav -->
         <nav id="nav">
-            <a href="#" class="icon fa-home"><span>Home</span></a>
-            <a href="#images" class="icon fa-image"><span>Observations</span></a>
+            <a href="#images" class="icon fa-image"><span>Images</span></a>
         </nav>
 
         <!-- Main -->
         <div id="main">
 
-            <!-- Observations -->
+            <!-- Images -->
             <article id="images" class="panel">
 
                 <header>
@@ -68,7 +67,7 @@
                                 <br>
                                 <b>Date</b>
                                 <br>
-                                    ${Image.date}
+                                    ${Image.dateToString()}
                                 <br>
                                 <b>Took in</b>
                                 <br>

@@ -7,24 +7,33 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
+import org.bson.Document;
+import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 
+import javax.print.Doc;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class ModelImage {
 
-    private static Image createImageFromCursorData(BasicDBObject cursorData){
+    private static Image createImageFromCursorData(Document cursorData){
 
         Image image = null;
 
         try {
 
-            String imageId = cursorData.getString("_id");
+            String imageId = getIdFromObject(cursorData);
+
             String imageURL = cursorData.getString("url");
             String photographerName = cursorData.getString("photographerName");
             String specieName = cursorData.getString("specieName");
-            Date date = cursorData.getDate("date");
+
+            Date date = getDateFromCursor(cursorData);
+
             String country = cursorData.getString("country");
             String province = cursorData.getString("province");
             String ownerName = cursorData.getString("owner");
@@ -62,7 +71,7 @@ public class ModelImage {
             cursor = iterator.iterator();
 
             while (cursor.hasNext()) {
-                images.add(createImageFromCursorData((BasicDBObject) cursor.next()));
+                images.add(createImageFromCursorData((Document) cursor.next()));
             }
 
 
@@ -89,7 +98,7 @@ public class ModelImage {
             // Get the collection of images
             imageCollection = database.getCollection("ImagesCollection");
 
-            imageCollection.insertOne(image.toBasicDBObject());
+            imageCollection.insertOne(image.toDocument());
 
 
         } catch (Exception e) {
@@ -112,14 +121,16 @@ public class ModelImage {
             // Get the collection of images
             imageCollection = database.getCollection("ImagesCollection");
 
-            imageCollection.updateOne(Filters.eq("_id", image.getImageId()),
-                    Updates.combine(Updates.set("url", image.getImageURL()),
-                            Updates.set("photographerName", image.getPhtographerName()),
-                            Updates.set("specieName", image.getSpecieName()),
-                            Updates.set("date", image.getDate()),
-                            Updates.set("country", image.getCountry()),
-                            Updates.set("province", image.getProvince()),
-                            Updates.set("owner", image.getOwnerName())));
+            Document docToUpdate = (Document) imageCollection.find(new Document("_id", new ObjectId(image.getImageId()))).first();
+
+            System.out.println("\nImage found\n");
+
+            //System.out.println("\nURL: " + image.getImageURL() + "\n");
+            Bson updatedValue = image.toDocument();
+            Bson updateOperation = new Document("$set", updatedValue);
+            imageCollection.updateOne(docToUpdate, updateOperation);
+
+            System.out.println("\nUpdated\n");
 
 
         } catch (Exception e) {
@@ -146,14 +157,14 @@ public class ModelImage {
             // Get the collection of images
             imageCollection = database.getCollection("ImagesCollection");
 
-            BasicDBObject objectSearched = new BasicDBObject("_id", imageId);
+            BasicDBObject objectSearched = new BasicDBObject("_id", new ObjectId(imageId));
 
             iterator = imageCollection.find(objectSearched);
 
             cursor = iterator.iterator();
 
             if (cursor.hasNext()) {
-                image = createImageFromCursorData((BasicDBObject) cursor.next());
+                image = createImageFromCursorData((Document) cursor.next());
             }
 
 
@@ -180,7 +191,7 @@ public class ModelImage {
             // Get the collection of images
             imageCollection = database.getCollection("ImagesCollection");
 
-            BasicDBObject objectToDelete = new BasicDBObject("_id", imageId);
+            BasicDBObject objectToDelete = new BasicDBObject("_id", new ObjectId(imageId));
 
             imageCollection.deleteOne(objectToDelete);
 
@@ -188,5 +199,20 @@ public class ModelImage {
             e.printStackTrace();
         }
 
+    }
+
+    private static String getIdFromObject(Document cursorData){
+        ObjectId objectId = cursorData.getObjectId("_id");
+        return objectId.toString();
+    }
+
+    private static Date getDateFromCursor(Document cursorData){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            return dateFormat.parse(cursorData.getString("date"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

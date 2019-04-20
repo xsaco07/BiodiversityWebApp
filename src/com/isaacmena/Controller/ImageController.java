@@ -33,7 +33,7 @@ public class ImageController extends HttpServlet {
             case "load":
                 loadImageData(request, response);
                 break;
-            case "upload":
+            case "update":
                 updateImage(request, response);
                 break;
             case "delete":
@@ -59,7 +59,7 @@ public class ImageController extends HttpServlet {
         Image image = new Image(imageUrl, photographerName, specieName, date, country, province, owner);
 
         try {
-
+            System.out.println("\nInserting image\n");
             ModelImage.insertImage(image);
             listImages(request, response);
 
@@ -111,12 +111,11 @@ public class ImageController extends HttpServlet {
 
         try {
             image = ModelImage.getImage(imageId);
-
             request.setAttribute("image", image);
 
             // Send data to jsp updating form page
 
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("UpdateImage.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/ImageJSPs/UpdateImage.jsp");
 
             requestDispatcher.forward(request, response);
 
@@ -138,8 +137,9 @@ public class ImageController extends HttpServlet {
 
         Image image = new Image(imageId, imageUrl, photographerName, specieName, date, country, province, owner);
 
-        try {
+        System.out.println("\n " + imageUrl + "\n");
 
+        try {
             ModelImage.updateImage(image);
             listImages(request, response);
 
@@ -150,14 +150,12 @@ public class ImageController extends HttpServlet {
 
     private Date getDateFromForm(HttpServletRequest request){
 
-        SimpleDateFormat format = new SimpleDateFormat("mm/dd/yyyy");
-
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         try {
-            return format.parse(request.getParameter("date"));
+            return dateFormat.parse(request.getParameter("date"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
         return null;
 
     }

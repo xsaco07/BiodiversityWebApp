@@ -26,7 +26,7 @@
                 <header>
                     <h2>Update image</h2>
                 </header>
-                <form action="/ImageController" method="post">
+                <form action="/ImageController" method="get">
 
                     <input type="hidden" name="action" value="update">
                     <input type="hidden" name="imageId" value="${image.imageId}">
@@ -42,8 +42,11 @@
                             <div class="col-6 col-12-medium">
                                 <input type="text" name="photographer" placeholder="Photographer" value="${image.photographerName}"/>
                             </div>
+                            <div class="col-6 col-12-medium">
+                                <input type="text" name="specieName" placeholder="Specie Name" value="${image.specieName}"/>
+                            </div>
                             <div class="col-12">
-                                <input type="date" name="date" placeholder="Date" value="${image.date}"/>
+                                <input type="text" name="date" placeholder="Date" value="${image.dateToString()}"/>
                             </div>
                             <div class="col-6 col-12-medium">
                                 <input type="text" name="country" placeholder="Country" value="${image.country}"/>

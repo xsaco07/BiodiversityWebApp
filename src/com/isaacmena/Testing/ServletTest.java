@@ -32,22 +32,22 @@ public class ServletTest extends HttpServlet {
         try {
 
             // Create connection
-            connection = dataBase.getConnection();
+            //connection = dataBase.getConnection();
 
             // Create sql query
-            String sql = "Select * from TAXON_LEVEL";
-            query = connection.createStatement();
+            //String sql = "Select * from TAXON_LEVEL";
+            //query = connection.createStatement();
 
             // Execute sql query
-            result = query.executeQuery(sql);
+            //result = query.executeQuery(sql);
 
             // Show results
             outPut.println("<html><body>");
             outPut.println("<h1 style='text-align:center'>Prueba Servlet</h1>");
-            while (result.next()){
-                String taxon = result.getString("LEVEL_NAME");
-                outPut.println("<h3>Level name: " + taxon + "</h3>");
-            }
+            //while (result.next()){
+            //    String taxon = result.getString("LEVEL_NAME");
+            //    outPut.println("<h3>Level name: " + taxon + "</h3>");
+            //}
             outPut.println("</body></html>");
 
         }catch (Exception e){
