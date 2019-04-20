@@ -33,13 +33,13 @@
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="url" placeholder="URL" />
+                                <input type="text" required name="url" placeholder="URL" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="photographer" placeholder="Photographer" />
+                                <input type="text" required name="photographer" placeholder="Photographer" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="specieName" placeholder="Specie name" />
+                                <input type="text" required name="specieName" placeholder="Specie name" />
                             </div>
                             <div class="col-12">
                                 <input type="text" name="date" placeholder="Date" />

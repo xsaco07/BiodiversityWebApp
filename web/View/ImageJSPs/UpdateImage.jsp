@@ -37,13 +37,13 @@
                                 <input disabled type="text" name="imageId" placeholder="ImageId" value="${image.imageId}" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="url" placeholder="URL" value="${image.imageURL}"/>
+                                <input type="text" name="url" required placeholder="URL" value="${image.imageURL}"/>
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="photographer" placeholder="Photographer" value="${image.photographerName}"/>
+                                <input type="text" name="photographer" required placeholder="Photographer" value="${image.photographerName}"/>
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="specieName" placeholder="Specie Name" value="${image.specieName}"/>
+                                <input type="text" name="specieName" required placeholder="Specie Name" value="${image.specieName}"/>
                             </div>
                             <div class="col-12">
                                 <input type="text" name="date" placeholder="Date" value="${image.dateToString()}"/>

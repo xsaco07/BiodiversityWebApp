@@ -18,7 +18,8 @@
 
         <!-- Nav -->
         <nav id="nav">
-            <a href="#images" class="icon fa-image"><span>Images</span></a>
+            <a href="#" class="icon fa-image"><span>Images</span></a>
+            <a href="/index.jsp" class="icon fa-home"><span>Home</span></a>
         </nav>
 
         <!-- Main -->
@@ -53,32 +54,37 @@
 
                             </c:url>
 
-
                             <div class="col-4 col-6-medium col-12-small">
-                                <a href="#" class="image fit"><img width="200" height="175" src="${Image.imageURL}" alt=""></a>
 
-                                <b>Photographer</b>
+                                <a href="#" style="border: 8px solid #d7d7d7; box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" class="image fit"><img src="${Image.imageURL}" alt=""></a>
+
                                 <br>
-                                    ${Image.photographerName}
-                                <br>
-                                <b>Specie</b>
-                                <br>
-                                    ${Image.specieName}
-                                <br>
-                                <b>Date</b>
-                                <br>
-                                    ${Image.dateToString()}
-                                <br>
-                                <b>Took in</b>
-                                <br>
-                                    ${Image.country}, ${Image.province}
-                                <br>
-                                <b>Owner</b>
-                                <br>
-                                    ${Image.owner}
-                                <br>
-                                <a href="${linkDelete}" style="margin: 8px" class="icon fa-trash-o"></a>
-                                <a href="${linkUpdate}" style="margin: 8px" class="icon fa-pencil"></a>
+
+                                <div style="text-align: center">
+                                    <b>Photographer</b>
+                                    <br>
+                                        ${Image.photographerName}
+                                    <br>
+                                    <b>Specie</b>
+                                    <br>
+                                        ${Image.specieName}
+                                    <br>
+                                    <b>Date</b>
+                                    <br>
+                                        ${Image.dateToString()}
+                                    <br>
+                                    <b>Took in</b>
+                                    <br>
+                                        ${Image.country}, ${Image.province}
+                                    <br>
+                                    <b>Owner</b>
+                                    <br>
+                                        ${Image.owner}
+                                    <br>
+
+                                    <a href="${linkDelete}" style="font-size: 25px; margin: 8px" class="icon fa-trash-o"></a>
+                                    <a href="${linkUpdate}" style="font-size: 25px; margin: 8px" class="icon fa-pencil"></a>
+                                </div>
 
                             </div>
 
@@ -86,10 +92,9 @@
 
                     </div>
 
-                    <div class="row">
-                        <div class="col-4 col-6-medium col-12-small">
-                            <a href="View/ImageJSPs/RegisterImage.jsp" class="icon fa-plus"></a>
-                        </div>
+                    <div style="text-align: center;">
+                        <br>
+                        <a style="font-size: 50px; display: block; margin: 0 auto" href="View/ImageJSPs/RegisterImage.jsp" class="icon fa-plus"></a>
                     </div>
 
                 </section>
