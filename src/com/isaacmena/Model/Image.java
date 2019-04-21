@@ -1,9 +1,6 @@
 package com.isaacmena.Model;
 
-import com.mongodb.BasicDBObject;
 import org.bson.Document;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
