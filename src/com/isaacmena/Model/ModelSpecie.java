@@ -1,5 +1,7 @@
 package com.isaacmena.Model;
 
-public interface ModelSpecie {
+import java.util.List;
 
+public interface ModelSpecie {
+    List<String> getSpecieNames() throws Exception;
 }

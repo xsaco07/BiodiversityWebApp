@@ -39,11 +39,19 @@
                             <div class="col-6 col-12-medium">
                                 <input type="text" name="longitude" placeholder="Longitude" />
                             </div>
-                            <div class="col-12">
+                            <div class="col-6 col-12-medium">
                                 <input type="date" name="date" placeholder="Date" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="specie" placeholder="Specie name" />
+
+                                <select>
+
+                                    <c:forEach var="Specie" items="${Species}">
+                                        <option>${Specie}</option>
+                                    </c:forEach>
+
+                                </select>
+
                             </div>
                             <div class="col-6 col-12-medium">
                                 <input type="text" name="username" placeholder="User name" />

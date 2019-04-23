@@ -60,11 +60,32 @@ public class ObserverController extends HttpServlet {
             case "delete":
                 deletingObservation(request, response);
                 break;
+            case "register":
+                registerObservation(request, response);
+                break;
             default:
                 listObservations(request, response);
                 break;
         }
 
+    }
+
+    private void registerObservation(HttpServletRequest request, HttpServletResponse response) {
+
+        List<String> specieNames;
+
+        try {
+
+            specieNames = modelObservation.getSpecieNames();
+            request.setAttribute("Species", specieNames);
+
+            // Send species names list to jsp file
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("RegisterObservation.jsp");
+            requestDispatcher.forward(request, response);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void insertingObservation(HttpServletRequest request, HttpServletResponse response){

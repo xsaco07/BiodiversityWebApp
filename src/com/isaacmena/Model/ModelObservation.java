@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ModelObservation {
+public class ModelObservation implements ModelSpecie{
 
     private DataSource dataBase;
     private Connection connection;
@@ -189,4 +189,35 @@ public class ModelObservation {
         }
     }
 
+    @Override
+    public List<String> getSpecieNames() throws Exception {
+
+        List<String> specieNames = new ArrayList<>();
+
+        try {
+
+            // Create connection
+            connection = dataBase.getConnection();
+
+            // Create sql query
+            String sql = "Select s.NAME from Species s";
+
+            query = connection.createStatement();
+
+            // Execute sql query
+            result = query.executeQuery(sql);
+
+            while (result.next()){
+                specieNames.add(result.getString("NAME"));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
+        }
+
+        return specieNames;
+    }
 }
