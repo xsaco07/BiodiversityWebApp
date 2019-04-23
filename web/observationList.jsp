@@ -18,8 +18,8 @@
 
         <!-- Nav -->
         <nav id="nav">
-            <a href="#" class="icon fa-home"><span>Home</span></a>
             <a href="#observations" class="icon fa-search"><span>Observations</span></a>
+            <a href="#" class="icon fa-home"><span>Home</span></a>
         </nav>
 
         <!-- Main -->
@@ -85,9 +85,15 @@
 
                     </table>
 
+                    <c:url var="linkRegister" value="ObserverController">
+
+                        <c:param name="action" value="register"/>
+
+                    </c:url>
+
                     <div class="row">
                         <div class="col-4 col-6-medium col-12-small">
-                            <a href="View/ObservationJSPs/RegisterObservation.jsp" class="icon fa-plus"></a>
+                            <a href="${linkRegister}" class="icon fa-plus"></a>
                         </div>
                     </div>
 

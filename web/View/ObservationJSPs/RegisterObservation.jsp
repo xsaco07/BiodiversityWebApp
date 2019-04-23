@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -44,13 +44,18 @@
                             </div>
                             <div class="col-6 col-12-medium">
 
-                                <select>
+                                <input type="text" list="species">
 
+                                <datalist id="species">
+                                    <option>HOLA</option>
+                                    <option>ADIOS</option>
+                                    <option>TODO</option>
+                                    <option>BIEN</option>
                                     <c:forEach var="Specie" items="${Species}">
                                         <option>${Specie}</option>
                                     </c:forEach>
 
-                                </select>
+                                </datalist>
 
                             </div>
                             <div class="col-6 col-12-medium">

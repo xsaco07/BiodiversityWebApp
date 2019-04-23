@@ -2,7 +2,7 @@
 
 
     <Resource name="Pool" auth="Container" type="javax.sql.DataSource"
-              maxActive="5" maxIdle="2" maxWait="5000"
+              maxTotal="5" maxIdle="2" maxWaitMillis="5000"
               username="isaacmena07"
               password="isaacmena07"
               driverClassName="oracle.jdbc.driver.OracleDriver"
