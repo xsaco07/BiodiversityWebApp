@@ -68,14 +68,7 @@ public class ObserverController extends HttpServlet {
 
     private void insertingObservation(HttpServletRequest request, HttpServletResponse response){
 
-        String latitude = request.getParameter("latitude");
-        String longitude = request.getParameter("longitude");
-        Date date = getDateFromForm(request);
-        String specieName = request.getParameter("specie");
-        String userName = request.getParameter("userName");
-        String imageUrl = request.getParameter("imageURL");
-
-        Observation observation = new Observation(latitude, longitude, date, specieName, userName, imageUrl);
+        Observation observation = createObservationFromRequestData(request);
 
         try {
 
@@ -144,15 +137,7 @@ public class ObserverController extends HttpServlet {
 
     private void updateObservation(HttpServletRequest request, HttpServletResponse response){
 
-        int observationId = Integer.parseInt(request.getParameter("observationId"));
-        String latitude = request.getParameter("latitude");
-        String longitude = request.getParameter("longitude");
-        Date date = getDateFromForm(request);
-        String specieName = request.getParameter("specie");
-        String userName = request.getParameter("userName");
-        String imageUrl = request.getParameter("imageURL");
-
-        Observation observation = new Observation(observationId, latitude, longitude, date, specieName, userName, imageUrl);
+        Observation observation = createObservationFromRequestData(request);
 
         try {
 
@@ -176,6 +161,18 @@ public class ObserverController extends HttpServlet {
 
         return null;
 
+    }
+
+    private Observation createObservationFromRequestData(HttpServletRequest request){
+        int observationId = Integer.parseInt(request.getParameter("observationId"));
+        String latitude = request.getParameter("latitude");
+        String longitude = request.getParameter("longitude");
+        Date date = getDateFromForm(request);
+        String specieName = request.getParameter("specie");
+        String userName = request.getParameter("userName");
+        String imageUrl = request.getParameter("imageURL");
+
+        return new Observation(observationId, latitude, longitude, date, specieName, userName, imageUrl);
     }
 
 }
