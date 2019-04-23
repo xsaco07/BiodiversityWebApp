@@ -4,6 +4,7 @@ import com.isaacmena.Model.ModelObservation;
 import com.isaacmena.Model.ModelUser;
 import com.isaacmena.Model.Observation;
 import com.isaacmena.Model.User;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -83,7 +84,9 @@ public class ObserverController extends HttpServlet {
     private void listObservations(HttpServletRequest request, HttpServletResponse response){
 
         List<Observation> observations;
+
         try {
+            System.out.println("\nListing observations\n");
             observations = modelObservation.getAllObservations();
 
             request.setAttribute("observationList", observations);
@@ -163,6 +166,7 @@ public class ObserverController extends HttpServlet {
 
     }
 
+    @NotNull
     private Observation createObservationFromRequestData(HttpServletRequest request){
         int observationId = Integer.parseInt(request.getParameter("observationId"));
         String latitude = request.getParameter("latitude");

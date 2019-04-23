@@ -37,8 +37,10 @@ public class ModelObservation {
             result = query.executeQuery(sql);
 
             while (result.next()){
+                System.out.println("\nResult obtained\n");
                 observations.add(createObservationFromResultSetData(result));
             }
+            System.out.println("\nResult not obtained\n");
 
         }catch (Exception e){
             e.printStackTrace();
