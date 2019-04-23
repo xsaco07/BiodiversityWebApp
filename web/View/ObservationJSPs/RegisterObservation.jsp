@@ -47,10 +47,7 @@
                                 <input type="text" list="species">
 
                                 <datalist id="species">
-                                    <option>HOLA</option>
-                                    <option>ADIOS</option>
-                                    <option>TODO</option>
-                                    <option>BIEN</option>
+
                                     <c:forEach var="Specie" items="${Species}">
                                         <option>${Specie}</option>
                                     </c:forEach>
