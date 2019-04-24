@@ -19,7 +19,7 @@
         <!-- Nav -->
         <nav id="nav">
             <a href="#observations" class="icon fa-search"><span>Observations</span></a>
-            <a href="#" class="icon fa-home"><span>Home</span></a>
+            <a href="/index.jsp" class="icon fa-home"><span>Home</span></a>
         </nav>
 
         <!-- Main -->

@@ -59,13 +59,13 @@ public class ModelObservation implements ModelSpecie{
 
         try {
 
-            int observationId = result.getInt(1);
-            String latitude = result.getString(2);
-            String longitude = result.getString(3);
-            Date date = result.getDate(4);
-            String specieName = result.getString(5);
+            int observationId = result.getInt(7);
+            String latitude = result.getString(1);
+            String longitude = result.getString(2);
+            Date date = result.getDate(3);
+            String specieName = result.getString(4);
             String userName = result.getString(6);
-            String imageUrl = result.getString(7);
+            String imageUrl = result.getString(5);
 
             observation = new Observation(observationId, latitude, longitude, date, specieName, userName, imageUrl);
 
@@ -148,7 +148,7 @@ public class ModelObservation implements ModelSpecie{
                                     "USER_NAME = '%s', " +
                                     "IMAGE_URL = '%s', " +
                                     ") where o.OBSERVATION_ID = %s",
-                            observation.getLatitude(), observation.getLongitud(), observation.getDate(), observation.getSpecieName(),
+                            observation.getLatitude(), observation.getLongitude(), observation.getDate(), observation.getSpecieName(),
                             observation.getUserName(), observation.getImageURL(), observation.getObservationId());
 
             query = connection.createStatement();
@@ -173,7 +173,7 @@ public class ModelObservation implements ModelSpecie{
             // Create sql query
             String sql = String.format(
                     "Insert into OBSERVATION values ('%s', '%s', '%s', '%s', '%s', '%s')",
-                    observation.getLatitude(), observation.getLongitud(), observation.getSpecieName(), observation.getDate(),
+                    observation.getLatitude(), observation.getLongitude(), observation.getSpecieName(), observation.getDate(),
                     observation.getSpecieName(), observation.getImageURL());
 
             query = connection.createStatement();

@@ -5,25 +5,25 @@ import java.util.*;
 public class Observation {
 
     private String latitude;
-    private String longitud;
+    private String longitude;
     private Date date;
     private String specieName;
     private String userName;
     private String imageURL;
     private int observationId;
 
-    public Observation(String latitude, String longitud, Date date, String specieName, String userName, String imageURL) {
+    public Observation(String latitude, String longitude, Date date, String specieName, String userName, String imageURL) {
         this.latitude = latitude;
-        this.longitud = longitud;
+        this.longitude = longitude;
         this.date = date;
         this.specieName = specieName;
         this.userName = userName;
         this.imageURL = imageURL;
     }
 
-    public Observation(int observationId, String latitude, String longitud, Date date, String specieName, String userName, String imageURL) {
+    public Observation(int observationId, String latitude, String longitude, Date date, String specieName, String userName, String imageURL) {
         this.latitude = latitude;
-        this.longitud = longitud;
+        this.longitude = longitude;
         this.date = date;
         this.specieName = specieName;
         this.userName = userName;
@@ -39,12 +39,12 @@ public class Observation {
         this.latitude = latitude;
     }
 
-    public String getLongitud() {
-        return longitud;
+    public String getLongitude() {
+        return longitude;
     }
 
-    public void setLongitud(String longitud) {
-        this.longitud = longitud;
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     public Date getDate() {
