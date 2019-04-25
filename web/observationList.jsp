@@ -19,7 +19,7 @@
         <!-- Nav -->
         <nav id="nav">
             <a href="#observations" class="icon fa-search"><span>Observations</span></a>
-            <a href="/index.jsp" class="icon fa-home"><span>Home</span></a>
+            <a href="index.jsp" class="icon fa-home"><span>Home</span></a>
         </nav>
 
         <!-- Main -->
@@ -76,7 +76,7 @@
                                 <td>${Observation.date}</td>
                                 <td>${Observation.specieName}</td>
                                 <td>${Observation.userName}</td>
-                                <td></td>
+                                <td><a href="#" class="icon fa-image"></a></td>
                                 <td>
                                     <a href="${linkDelete}" style="font-size: 25px; margin: 10px" class="icon fa-trash-o"></a>
                                     <a href="${linkUpdate}" style="font-size: 25px; margin: 10px" class="icon fa-pencil"></a>
@@ -94,10 +94,9 @@
 
                     </c:url>
 
-                    <div class="row">
-                        <div class="col-4 col-6-medium col-12-small">
-                            <a href="${linkRegister}" class="icon fa-plus"></a>
-                        </div>
+                    <div style="text-align: center;">
+                        <br>
+                        <a style="font-size: 50px; display: block; margin: 0 auto" href="${linkRegister}" class="icon fa-plus"></a>
                     </div>
 
                 </section>
