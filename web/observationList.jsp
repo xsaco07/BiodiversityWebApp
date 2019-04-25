@@ -41,13 +41,14 @@
 
                     <table>
                         <tr>
-                            <td>ID</td>
-                            <td>LATITUDE</td>
-                            <td>LONGITUDE</td>
-                            <td>SPECIE</td>
-                            <td>DATE</td>
-                            <td>USER</td>
-                            <td>IMAGE</td>
+                            <td><strong>ID</strong></td>
+                            <td><strong>LATITUDE</strong></td>
+                            <td><strong>LONGITUDE</strong></td>
+                            <td><strong>DATE</strong></td>
+                            <td><strong>SPECIE</strong></td>
+                            <td><strong>USER</strong></td>
+                            <td><strong>IMAGE</strong></td>
+                            <td><strong>ACTION</strong></td>
                         </tr>
 
                         <c:forEach var="Observation" items="${observationList}">
@@ -75,9 +76,11 @@
                                 <td>${Observation.date}</td>
                                 <td>${Observation.specieName}</td>
                                 <td>${Observation.userName}</td>
-                                <td>${Observation.imageURL}</td>
-                                <td><a href="${linkDelete}" class="icon fa-trash-o"></a></td>
-                                <td><a href="${linkUpdate}" class="icon fa-pencil"></a></td>
+                                <td></td>
+                                <td>
+                                    <a href="${linkDelete}" style="font-size: 25px; margin: 10px" class="icon fa-trash-o"></a>
+                                    <a href="${linkUpdate}" style="font-size: 25px; margin: 10px" class="icon fa-pencil"></a>
+                                </td>
 
                             </tr>
 

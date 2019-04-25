@@ -26,7 +26,7 @@
                 <header>
                     <h2>Update observation</h2>
                 </header>
-                <form action="/ObserverController" method="post">
+                <form action="ObserverController" method="get">
 
                     <input type="hidden" name="action" value="update">
                     <input type="hidden" name="observationId" value="${observation.observationId}">
@@ -43,13 +43,13 @@
                                 <input type="text" name="longitude" placeholder="Longitude" value="${observation.longitude}"/>
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="date" name="date" placeholder="Date" value="${observation.date}" />
+                                <input required type="date" name="date" placeholder="Date" value="${observation.date}" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="specie" placeholder="Specie name" value="${observation.specieName}"/>
+                                <input required type="text" name="specie" placeholder="Specie name" value="${observation.specieName}"/>
                             </div>
                             <div class="col-12">
-                                <input type="text" name="username" placeholder="User name" value="${observation.userName}"/>
+                                <input required type="text" name="username" placeholder="User name" value="${observation.userName}"/>
                             </div>
                             <div class="col-12">
                                 <input type="text" name="imageURL" placeholder="Image url" value="${observation.imageURL}"/>

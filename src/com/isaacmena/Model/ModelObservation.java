@@ -139,16 +139,15 @@ public class ModelObservation implements ModelSpecie{
             // Create sql query
             String sql =
                     String.format(
-                            "Update OBSERVATION o set " +
-                                    "(" +
+                            "Update OBSERVATION set " +
                                     "LATITUDE = '%s', " +
-                                    "LONGITUDE = %s, " +
-                                    "DATE = '%s', " +
+                                    "LONGITUDE = '%s', " +
+                                    "OBSERVATION_DATE = TO_DATE('%s', 'yyyy/mm/dd'), " +
                                     "SPECIE_NAME = '%s', " +
                                     "USER_NAME = '%s', " +
-                                    "IMAGE_URL = '%s', " +
-                                    ") where o.OBSERVATION_ID = %s",
-                            observation.getLatitude(), observation.getLongitude(), observation.getDate(), observation.getSpecieName(),
+                                    "IMAGE_URL = '%s'" +
+                                    " where OBSERVATION_ID = %s",
+                            observation.getLatitude(), observation.getLongitude(), observation.dateToString(), observation.getSpecieName(),
                             observation.getUserName(), observation.getImageURL(), observation.getObservationId());
 
             query = connection.createStatement();
@@ -172,11 +171,13 @@ public class ModelObservation implements ModelSpecie{
 
             // Create sql query
             String sql = String.format(
-                    "Insert into OBSERVATION values ('%s', '%s', '%s', '%s', '%s', '%s')",
-                    observation.getLatitude(), observation.getLongitude(), observation.getSpecieName(), observation.getDate(),
-                    observation.getSpecieName(), observation.getImageURL());
+                    "Insert into OBSERVATION (LATITUDE, LONGITUDE, OBSERVATION_DATE, SPECIE_NAME, IMAGE_URL, USER_NAME) values ('%s', '%s', TO_DATE('%s', 'yyyy/mm/dd'), '%s', '%s', '%s')",
+                    observation.getLatitude(), observation.getLongitude(), observation.dateToString(), observation.getSpecieName(),
+                    observation.getImageURL(), observation.getUserName());
 
             query = connection.createStatement();
+
+            System.out.println(sql);
 
             // Execute sql query
             result = query.executeQuery(sql);
@@ -200,16 +201,16 @@ public class ModelObservation implements ModelSpecie{
             connection = dataBase.getConnection();
 
             // Create sql query
-            String sql = "Select s.NAME from Species s";
+            String sql = "Select s.SPECIE_NAME from Species s";
 
             query = connection.createStatement();
 
             // Execute sql query
-            result = query.executeQuery(sql);
+            //result = query.executeQuery(sql);
 
-            while (result.next()){
-                specieNames.add(result.getString("NAME"));
-            }
+            //while (result.next()){
+            //    specieNames.add(result.getString("SPECIE_NAME"));
+            //}
 
         }catch (Exception e){
             e.printStackTrace();

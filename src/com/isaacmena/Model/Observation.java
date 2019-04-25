@@ -1,5 +1,6 @@
 package com.isaacmena.Model;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Observation {
@@ -29,6 +30,11 @@ public class Observation {
         this.userName = userName;
         this.imageURL = imageURL;
         this.observationId = observationId;
+    }
+
+    public String dateToString(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        return dateFormat.format(this.date);
     }
 
     public String getLatitude() {

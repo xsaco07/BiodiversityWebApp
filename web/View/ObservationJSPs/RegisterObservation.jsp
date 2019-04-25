@@ -27,7 +27,7 @@
                 <header>
                     <h2>New observation</h2>
                 </header>
-                <form action="/ObserverController" method="post">
+                <form action="ObserverController" method="get">
 
                     <input type="hidden" name="action" value="insert">
 
@@ -40,11 +40,11 @@
                                 <input type="text" name="longitude" placeholder="Longitude" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="date" name="date" placeholder="Date" />
+                                <input type="date" name="date"/>
                             </div>
                             <div class="col-6 col-12-medium">
 
-                                <input type="text" list="species">
+                                <input type="text" name="specie" list="species">
 
                                 <datalist id="species">
 

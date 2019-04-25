@@ -47,7 +47,9 @@ blockquote, q {
 	}
 
 table td {
-	border-bottom: 1px double #222222;
+	border: 1px double #222222;
+	border-radius: 2px;
+	background: #f4f4f4;
 }
 
 body {

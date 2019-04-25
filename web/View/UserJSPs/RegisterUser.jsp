@@ -26,7 +26,7 @@
                 <header>
                     <h2>New user</h2>
                 </header>
-                <form action="/UserController" method="post">
+                <form action="/UserController" method="get">
 
                     <input type="hidden" name="action" value="insert">
 

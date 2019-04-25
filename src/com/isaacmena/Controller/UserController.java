@@ -48,7 +48,7 @@ public class UserController extends HttpServlet {
             case "load":
                 loadUserData(request, response);
                 break;
-            case "upload":
+            case "update":
                 updateUser(request, response);
                 break;
             case "delete":

@@ -54,7 +54,7 @@ public class ObserverController extends HttpServlet {
             case "load":
                 loadObservationData(request, response);
                 break;
-            case "upload":
+            case "update":
                 updateObservation(request, response);
                 break;
             case "delete":
@@ -80,7 +80,7 @@ public class ObserverController extends HttpServlet {
             request.setAttribute("Species", specieNames);
 
             // Send species names list to jsp file
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("RegisterObservation.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/ObservationJSPs/RegisterObservation.jsp");
             requestDispatcher.forward(request, response);
 
         }catch (Exception e){
@@ -90,7 +90,7 @@ public class ObserverController extends HttpServlet {
 
     private void insertingObservation(HttpServletRequest request, HttpServletResponse response){
 
-        Observation observation = createObservationFromRequestData(request);
+        Observation observation = createObservationFromRequestData(request, false);
 
         try {
 
@@ -107,7 +107,6 @@ public class ObserverController extends HttpServlet {
         List<Observation> observations;
 
         try {
-            System.out.println("\nListing observations\n");
             observations = modelObservation.getAllObservations();
 
             request.setAttribute("observationList", observations);
@@ -150,7 +149,7 @@ public class ObserverController extends HttpServlet {
 
             // Send data to jsp updating form page
 
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("UpdateObservation.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/ObservationJSPs/UpdateObservation.jsp");
 
             requestDispatcher.forward(request, response);
 
@@ -161,10 +160,9 @@ public class ObserverController extends HttpServlet {
 
     private void updateObservation(HttpServletRequest request, HttpServletResponse response){
 
-        Observation observation = createObservationFromRequestData(request);
+        Observation observation = createObservationFromRequestData(request, true);
 
         try {
-
             modelObservation.updateObservation(observation);
             listObservations(request, response);
 
@@ -175,7 +173,7 @@ public class ObserverController extends HttpServlet {
 
     private Date getDateFromForm(HttpServletRequest request){
 
-        SimpleDateFormat format = new SimpleDateFormat("mm/dd/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
 
         try {
             return format.parse(request.getParameter("date"));
@@ -188,16 +186,23 @@ public class ObserverController extends HttpServlet {
     }
 
     @NotNull
-    private Observation createObservationFromRequestData(HttpServletRequest request){
-        int observationId = Integer.parseInt(request.getParameter("observationId"));
+    private Observation createObservationFromRequestData(HttpServletRequest request, boolean needId){
         String latitude = request.getParameter("latitude");
         String longitude = request.getParameter("longitude");
         Date date = getDateFromForm(request);
         String specieName = request.getParameter("specie");
-        String userName = request.getParameter("userName");
+        String userName = request.getParameter("username");
         String imageUrl = request.getParameter("imageURL");
 
-        return new Observation(observationId, latitude, longitude, date, specieName, userName, imageUrl);
+        System.out.println(specieName);
+        Observation observation;
+        if (needId){
+            int observationId = Integer.parseInt(request.getParameter("observationId"));
+            observation = new Observation(observationId, latitude, longitude, date, specieName, userName, imageUrl);
+        }
+        else observation = new Observation(latitude, longitude, date, specieName, userName, imageUrl);
+
+        return observation;
     }
 
 }
