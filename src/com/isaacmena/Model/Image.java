@@ -111,7 +111,7 @@ public class Image {
     }
 
     public String dateToString(){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         return dateFormat.format(this.date);
     }
 

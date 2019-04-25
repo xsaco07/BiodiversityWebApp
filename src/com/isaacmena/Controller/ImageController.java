@@ -2,6 +2,7 @@ package com.isaacmena.Controller;
 
 import com.isaacmena.Model.Image;
 import com.isaacmena.Model.ModelImage;
+import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,18 +49,9 @@ public class ImageController extends HttpServlet {
 
     private void insertingImage(HttpServletRequest request, HttpServletResponse response){
 
-        String imageUrl = request.getParameter("url");
-        String photographerName = request.getParameter("photographer");
-        String specieName = request.getParameter("specieName");
-        Date date = getDateFromForm(request);
-        String country = request.getParameter("country");
-        String province = request.getParameter("province");
-        String owner = request.getParameter("owner");
-
-        Image image = new Image(imageUrl, photographerName, specieName, date, country, province, owner);
+        Image image = createImageFromRequestData(request, false);
 
         try {
-            System.out.println("\nInserting image\n");
             ModelImage.insertImage(image);
             listImages(request, response);
 
@@ -126,18 +118,7 @@ public class ImageController extends HttpServlet {
 
     private void updateImage(HttpServletRequest request, HttpServletResponse response){
 
-        String imageId = request.getParameter("imageId");
-        String imageUrl = request.getParameter("url");
-        String photographerName = request.getParameter("photographer");
-        String specieName = request.getParameter("specieName");
-        Date date = getDateFromForm(request);
-        String country = request.getParameter("country");
-        String province = request.getParameter("province");
-        String owner = request.getParameter("owner");
-
-        Image image = new Image(imageId, imageUrl, photographerName, specieName, date, country, province, owner);
-
-        System.out.println("\n " + imageUrl + "\n");
+        Image image = createImageFromRequestData(request, true);
 
         try {
             ModelImage.updateImage(image);
@@ -150,7 +131,7 @@ public class ImageController extends HttpServlet {
 
     private Date getDateFromForm(HttpServletRequest request){
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         try {
             return dateFormat.parse(request.getParameter("date"));
         } catch (ParseException e) {
@@ -158,6 +139,27 @@ public class ImageController extends HttpServlet {
         }
         return null;
 
+    }
+
+    @NotNull
+    private Image createImageFromRequestData(HttpServletRequest request, boolean needId){
+
+        String imageUrl = request.getParameter("url");
+        String photographerName = request.getParameter("photographer");
+        String specieName = request.getParameter("specieName");
+        Date date = getDateFromForm(request);
+        String country = request.getParameter("country");
+        String province = request.getParameter("province");
+        String owner = request.getParameter("owner");
+
+        Image image;
+        if (needId){
+            String imageId = request.getParameter("imageId");
+            image = new Image(imageId, imageUrl, photographerName, specieName, date, country, province, owner);
+        }
+        else image= new Image(imageUrl, photographerName, specieName, date, country, province, owner);
+
+        return image;
     }
 
 }

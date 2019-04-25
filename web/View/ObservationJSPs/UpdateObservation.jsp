@@ -39,10 +39,10 @@
                                 <input disabled type="text" name="observationId" placeholder="Observation id" value="${observation.observationId}" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="latitude" placeholder="Latitude"  value="${observation.latitude}"/>
+                                <input required type="text" name="latitude" placeholder="Latitude"  value="${observation.latitude}"/>
                             </div>
-                            <div class="col-12">
-                                <input type="text" name="longitude" placeholder="Longitude" value="${observation.longitude}"/>
+                            <div class="col-6 col-12-medium"">
+                                <input required type="text" name="longitude" placeholder="Longitude" value="${observation.longitude}"/>
                             </div>
                             <div class="col-6 col-12-medium">
                                 <input required type="date" name="date" placeholder="Date" value="${observation.date}" />

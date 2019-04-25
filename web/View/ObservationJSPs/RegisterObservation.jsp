@@ -35,17 +35,17 @@
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="latitude" placeholder="Latitude" />
+                                <input required type="text" name="latitude" placeholder="Latitude" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="longitude" placeholder="Longitude" />
+                                <input required type="text" name="longitude" placeholder="Longitude" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="date" name="date"/>
+                                <input required type="date" name="date"/>
                             </div>
                             <div class="col-6 col-12-medium">
 
-                                <input type="text" name="specie" list="species">
+                                <input required type="text" name="specie" list="species" placeholder="Specie Name">
 
                                 <datalist id="species">
 
@@ -57,10 +57,10 @@
 
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="username" placeholder="User name" />
+                                <input required type="text" name="username" placeholder="User name" />
                             </div>
-                            <div class="col-12">
-                                <input type="text" name="imageURL" placeholder="Image URL" />
+                            <div class="col-6 col-12-medium">
+                                <input required type="text" name="imageURL" placeholder="Image URL" />
                             </div>
                             <div class="col-12">
                                 <input type="submit" value="Finish" />

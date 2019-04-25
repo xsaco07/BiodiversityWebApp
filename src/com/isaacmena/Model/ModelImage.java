@@ -201,7 +201,7 @@ public class ModelImage {
     }
 
     private static Date getDateFromCursor(Document cursorData){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         try {
             return dateFormat.parse(cursorData.getString("date"));
         } catch (ParseException e) {

@@ -26,12 +26,14 @@ public class ObserverController extends HttpServlet {
     @Resource(name = "Pool")
     private DataSource dataBase;
     private ModelObservation modelObservation;
+    private List<String> speciesNames;
 
     @Override
     public void init() throws ServletException{
         super.init();
         try {
             modelObservation = new ModelObservation(dataBase);
+            speciesNames = modelObservation.getSpecieNames();
         }catch (Exception e){
             throw new ServletException(e);
         }
@@ -72,12 +74,9 @@ public class ObserverController extends HttpServlet {
 
     private void registerObservation(HttpServletRequest request, HttpServletResponse response) {
 
-        List<String> specieNames;
-
         try {
 
-            specieNames = modelObservation.getSpecieNames();
-            request.setAttribute("Species", specieNames);
+            request.setAttribute("Species", speciesNames);
 
             // Send species names list to jsp file
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/ObservationJSPs/RegisterObservation.jsp");
@@ -139,16 +138,15 @@ public class ObserverController extends HttpServlet {
     private void loadObservationData(HttpServletRequest request, HttpServletResponse response){
 
         Observation observation;
-        List<String> specieNames;
+
         // Get the username from the list of users linked in the request
         int observationId = Integer.parseInt(request.getParameter("observationId"));
 
         try {
 
             observation = modelObservation.getObservation(observationId);
-            specieNames = modelObservation.getSpecieNames();
 
-            request.setAttribute("Species", specieNames);
+            request.setAttribute("Species", speciesNames);
             request.setAttribute("observation", observation);
 
             // Send data to jsp updating form page
