@@ -7,6 +7,7 @@
         <title>Observations List</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
@@ -53,6 +54,30 @@
 
                         <c:forEach var="Observation" items="${observationList}">
 
+                            <div class="container">
+
+                                <div class="modal fade" id="id${Observation.observationId}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Specie: ${Observation.specieName}</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <a href="" style="border: 8px solid #d7d7d7;" class="image fit"><img src="${Observation.imageURL}" width="300" alt=""></a>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
                             <!--Link the userName to the request when updating-->
                             <c:url var="linkUpdate" value="ObserverController">
 
@@ -69,6 +94,12 @@
 
                             </c:url>
 
+                            <c:url var="linkModal" value="ModalImage.jsp">
+
+                                <c:param name="Observation" value="${Observation}"/>
+
+                            </c:url>
+
                             <tr>
                                 <td>${Observation.observationId}</td>
                                 <td>${Observation.latitude}</td>
@@ -76,7 +107,7 @@
                                 <td>${Observation.date}</td>
                                 <td>${Observation.specieName}</td>
                                 <td>${Observation.userName}</td>
-                                <td><a href="#" class="icon fa-image"></a></td>
+                                <td><a href="#" data-toggle="modal" data-target="#id${Observation.observationId}" class="icon fa-image"></a></td>
                                 <td>
                                     <a href="${linkDelete}" style="font-size: 25px; margin: 10px" class="icon fa-trash-o"></a>
                                     <a href="${linkUpdate}" style="font-size: 25px; margin: 10px" class="icon fa-pencil"></a>
@@ -120,6 +151,8 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
     </body>
 </html>

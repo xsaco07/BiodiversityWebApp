@@ -37,10 +37,8 @@ public class ModelObservation implements ModelSpecie{
             result = query.executeQuery(sql);
 
             while (result.next()){
-                System.out.println("\nResult obtained\n");
                 observations.add(createObservationFromResultSetData(result));
             }
-            System.out.println("\nResult not obtained\n");
 
         }catch (Exception e){
             e.printStackTrace();
@@ -201,16 +199,16 @@ public class ModelObservation implements ModelSpecie{
             connection = dataBase.getConnection();
 
             // Create sql query
-            String sql = "Select s.SPECIE_NAME from Species s";
+            String sql = "SELECT TAXON_NAME FROM SPECIES_VIEW";
 
             query = connection.createStatement();
 
             // Execute sql query
-            //result = query.executeQuery(sql);
+            result = query.executeQuery(sql);
 
-            //while (result.next()){
-            //    specieNames.add(result.getString("SPECIE_NAME"));
-            //}
+            while (result.next()){
+                specieNames.add(result.getString("TAXON_NAME"));
+            }
 
         }catch (Exception e){
             e.printStackTrace();

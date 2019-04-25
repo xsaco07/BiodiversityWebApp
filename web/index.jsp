@@ -51,11 +51,11 @@
             you can update or delete any observation.
           </p>
 
-            <img style="box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 8px solid #d7d7d7; display: block; margin: 0 auto" src="/assets/css/images/photographer.png" width="400" height="300" alt="">
+            <img style="box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 8px solid #d7d7d7; display: block; margin: 0 auto" src="assets/css/images/photographer.png" width="400" height="300" alt="">
 
             <br>
 
-            <form action="/ObserverController" method="get">
+            <form action="ObserverController" method="get">
                 <input type="hidden" name="action" value="list">
                 <input style="box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" type="submit" value="View all observations">
             </form>
@@ -73,11 +73,11 @@
                 <b>Users</b> can make the observations in this web page.
             </p>
 
-            <img style="box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 8px solid #d7d7d7; display: block; margin: 0 auto" src="/assets/css/images/user2.jpg" width="250" height="250" alt="">
+            <img style="box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 8px solid #d7d7d7; display: block; margin: 0 auto" src="assets/css/images/user2.jpg" width="250" height="250" alt="">
 
             <br>
 
-            <form action="/UserController" method="get">
+            <form action="UserController" method="get">
                 <input type="hidden" name="action" value="list">
                 <input style="box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" type="submit" value="View all users">
             </form>
@@ -95,11 +95,11 @@
                 You can add new ones whenever you want or update it if you made a mistake while creating a new one.
             </p>
 
-            <img style="border: 8px solid #d7d7d7; box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" src="/assets/css/images/animal.jpg" width="480" height="300" alt="">
+            <img style="border: 8px solid #d7d7d7; box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" src="assets/css/images/animal.jpg" width="480" height="300" alt="">
 
             <br>
 
-            <form action="/ImageController" method="get">
+            <form action="ImageController" method="get">
                 <input type="hidden" name="action" value="list">
                 <input style="box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" type="submit" value="View gallery">
             </form>

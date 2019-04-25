@@ -139,12 +139,16 @@ public class ObserverController extends HttpServlet {
     private void loadObservationData(HttpServletRequest request, HttpServletResponse response){
 
         Observation observation;
+        List<String> specieNames;
         // Get the username from the list of users linked in the request
         int observationId = Integer.parseInt(request.getParameter("observationId"));
 
         try {
-            observation = modelObservation.getObservation(observationId);
 
+            observation = modelObservation.getObservation(observationId);
+            specieNames = modelObservation.getSpecieNames();
+
+            request.setAttribute("Species", specieNames);
             request.setAttribute("observation", observation);
 
             // Send data to jsp updating form page
@@ -194,7 +198,6 @@ public class ObserverController extends HttpServlet {
         String userName = request.getParameter("username");
         String imageUrl = request.getParameter("imageURL");
 
-        System.out.println(specieName);
         Observation observation;
         if (needId){
             int observationId = Integer.parseInt(request.getParameter("observationId"));
