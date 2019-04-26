@@ -7,6 +7,7 @@
         <title>User List</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
@@ -18,8 +19,8 @@
 
         <!-- Nav -->
         <nav id="nav">
-            <a href="#" class="icon fa-home"><span>Home</span></a>
             <a href="#users" class="icon fa-user"><span>Observations</span></a>
+            <a href="index.jsp" class="icon fa-home"><span>Home</span></a>
         </nav>
 
         <!-- Main -->
@@ -40,14 +41,15 @@
                 <section>
 
                     <table>
-                        <tr>
-                            <td>NAME</td>
-                            <td>LAST NAME</td>
-                            <td>LAST NAME</td>
-                            <td>ADDRESS</td>
-                            <td>EMAIL</td>
-                            <td>USER NAME</td>
-                            <td>PASSWORD</td>
+                        <tr style="text-align: center">
+                            <td><strong style="margin: 5px">NAME</strong></td>
+                            <td><strong style="margin: 5px">L.NAME 1</strong></td>
+                            <td><strong style="margin: 5px">L.NAME 2</strong></td>
+                            <td><strong style="margin: 5px">ADDRESS</strong></td>
+                            <td><strong style="margin: 5px">EMAIL</strong></td>
+                            <td><strong style="margin: 5px">WEB NAME</strong></td>
+                            <td><strong style="margin: 5px">PASS</strong></td>
+                            <td><strong style="margin: 5px">ACTION</strong></td>
                         </tr>
 
                         <c:forEach var="User" items="${userList}">
@@ -56,7 +58,7 @@
                             <c:url var="linkUpdate" value="UserController">
 
                                 <c:param name="action" value="load"/>
-                                <c:param name="username" value="${User.username}"/>
+                                <c:param name="username" value="${User.userName}"/>
 
                             </c:url>
 
@@ -64,7 +66,7 @@
                             <c:url var="linkDelete" value="UserController">
 
                                 <c:param name="action" value="delete"/>
-                                <c:param name="username" value="${User.username}"/>
+                                <c:param name="username" value="${User.userName}"/>
 
                             </c:url>
 
@@ -76,8 +78,10 @@
                                 <td>${User.email}</td>
                                 <td>${User.userName}</td>
                                 <td>${User.password}</td>
-                                <td><a href="${linkDelete}" class="icon fa-trash-o"></a></td>
-                                <td><a href="${linkUpdate}" class="icon fa-pencil"></a></td>
+                                <td>
+                                    <a href="${linkDelete}" style="font-size: 25px; margin: 10px" class="icon fa-trash-o"></a>
+                                    <a href="${linkUpdate}" style="font-size: 25px; margin: 10px" class="icon fa-pencil"></a>
+                                </td>
 
                             </tr>
 
@@ -85,10 +89,9 @@
 
                     </table>
 
-                    <div class="row">
-                        <div class="col-4 col-6-medium col-12-small">
-                            <a href="View/UserJSPs/RegisterUser.jsp" class="icon fa-plus"></a>
-                        </div>
+                    <div style="text-align: center;">
+                        <br>
+                        <a style="font-size: 50px; display: block; margin: 0 auto" href="View/UserJSPs/RegisterUser.jsp" class="icon fa-plus"></a>
                     </div>
 
                 </section>
@@ -112,6 +115,8 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
     </body>
 

@@ -2,6 +2,7 @@ package com.isaacmena.Controller;
 
 import com.isaacmena.Model.ModelUser;
 import com.isaacmena.Model.User;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -63,15 +64,7 @@ public class UserController extends HttpServlet {
 
     private void insertingUser(HttpServletRequest request, HttpServletResponse response){
 
-        String userName = request.getParameter("user");
-        String password = request.getParameter("pass");
-        String realName = request.getParameter("name");
-        String lastName1 = request.getParameter("last_name1");
-        String lastName2 = request.getParameter("last_name2");
-        String email = request.getParameter("email");
-        String address = request.getParameter("address");
-
-        User user = new User(userName, password, realName, lastName1, lastName2, address, email);
+        User user = createUserFromRequestData(request);
 
         try {
 
@@ -129,7 +122,7 @@ public class UserController extends HttpServlet {
 
             // Send data to jsp updating form page
 
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("UpdateUser.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/UserJSPs/UpdateUser.jsp");
 
             requestDispatcher.forward(request, response);
 
@@ -139,18 +132,10 @@ public class UserController extends HttpServlet {
     }
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response){
-        String userName = request.getParameter("user");
-        String password = request.getParameter("pass");
-        String realName = request.getParameter("name");
-        String lastName1 = request.getParameter("last_name1");
-        String lastName2 = request.getParameter("last_name2");
-        String email = request.getParameter("email");
-        String address = request.getParameter("address");
 
-        User user = new User(userName, password, realName, lastName1, lastName2, address, email);
+        User user = createUserFromRequestData(request);
 
         try {
-
             modelUser.updateUser(user);
             listUsers(request, response);
 
@@ -158,4 +143,20 @@ public class UserController extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    @NotNull
+    private User createUserFromRequestData(HttpServletRequest request){
+
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("pass");
+        String realName = request.getParameter("name");
+        String lastName1 = request.getParameter("last_name1");
+        String lastName2 = request.getParameter("last_name2");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+
+        return new User(userName, password, realName, lastName1, lastName2, address, email);
+
+    }
+
 }

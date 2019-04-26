@@ -21,6 +21,7 @@
         <a href="#observations" class="icon fa-search"><span>Observations</span></a>
         <a href="#users" class="icon fa-user"><span>User settings</span></a>
         <a href="#images" class="icon fa-image"><span>Images</span></a>
+        <a href="View/UserJSPs/login.jsp" class="icon fa-sign-out"><span>Log out</span></a>
       </nav>
 
       <!-- Main -->

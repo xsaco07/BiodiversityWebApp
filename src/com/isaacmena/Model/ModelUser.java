@@ -55,14 +55,13 @@ public class ModelUser {
         User user = null;
 
         try {
-            // TODO update column indexes because there wont be user id any more
-            String userName = result.getString(7);
-            String password = result.getString(8);
-            String name = result.getString(2);
-            String lastName1 = result.getString(3);
-            String lastName2 = result.getString(4);
-            String address = result.getString(5);
-            String email = result.getString(6);
+            String userName = result.getString("USER_NAME");
+            String password = result.getString("USER_PASS");
+            String name = result.getString("NAME");
+            String lastName1 = result.getString("LAST_NAME1");
+            String lastName2 = result.getString("LAST_NAME2");
+            String address = result.getString("ADDRESS");
+            String email = result.getString("EMAIL");
 
             user = new User(userName, password, name, lastName1, lastName2, address, email);
 
@@ -84,7 +83,7 @@ public class ModelUser {
             connection = dataBase.getConnection();
 
             // Create sql query
-            String sql = String.format("Select * from USERS u where u.USER_WEB_NAME = '%s'", userName);
+            String sql = String.format("Select * from USERS u where u.USER_NAME = '%s'", userName);
             query = connection.createStatement();
 
             // Execute sql query
@@ -113,7 +112,7 @@ public class ModelUser {
             connection = dataBase.getConnection();
 
             // Create sql query
-            String sql = String.format("Delete from USERS U where U.NAME = '%s'", username);
+            String sql = String.format("Delete from USERS U where U.USER_NAME = '%s'", username);
             query = connection.createStatement();
 
             // Execute sql query
@@ -128,7 +127,10 @@ public class ModelUser {
     }
 
     public void updateUser(User user) throws Exception{
+
         try {
+
+            System.out.println("\nUpdating user in model\n");
 
             // Create connection
             connection = dataBase.getConnection();
@@ -136,19 +138,17 @@ public class ModelUser {
             // Create sql query
             String sql =
                     String.format(
-                    "Update USERS u set " +
-                            "(" +
+                    "Update USERS set " +
                             "NAME = '%s', " +
-                            "LAST_NAME1 = %s, " +
+                            "LAST_NAME1 = '%s', " +
                             "LAST_NAME2 = '%s', " +
                             "ADDRESS = '%s', " +
-                            "EMAIL = '%s', " +
-                            "USER_WEB_NAME = '%s', " +
-                            "USER_PASS = '%s'" +
-                            ") where u.USER_WEB_NAME = '%s'",
+                            "EMAIL = '%s'" +
+                            " where USER_NAME = '%s'",
                     user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
-                    user.getEmail(), user.getUserName(), user.getPassword(), user.getUserName());
+                    user.getEmail(), user.getUserName());
 
+            System.out.println("\nURL:" + sql);
             query = connection.createStatement();
 
             // Execute sql query
@@ -171,8 +171,8 @@ public class ModelUser {
             // Create sql query
             String sql = String.format(
                     "Insert into USERS values ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-                    user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
-                    user.getEmail(), user.getUserName(), user.getPassword());
+                    user.getUserName(), user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
+                    user.getEmail(), user.getPassword());
 
             query = connection.createStatement();
 

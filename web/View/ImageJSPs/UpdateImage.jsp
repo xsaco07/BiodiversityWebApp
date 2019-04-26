@@ -26,7 +26,7 @@
                 <header>
                     <h2>Update image</h2>
                 </header>
-                <form action="/ImageController" method="get">
+                <form action="ImageController" method="get">
 
                     <input type="hidden" name="action" value="update">
                     <input type="hidden" name="imageId" value="${image.imageId}">

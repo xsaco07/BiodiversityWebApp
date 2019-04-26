@@ -33,7 +33,7 @@
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
-                                <input type="text" name="user" placeholder="User name" />
+                                <input type="text" name="userName" placeholder="User name" />
                             </div>
                             <div class="col-6 col-12-medium">
                                 <input type="password" name="pass" placeholder="Password" />

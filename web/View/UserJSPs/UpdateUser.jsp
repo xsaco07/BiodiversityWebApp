@@ -26,18 +26,18 @@
                 <header>
                     <h2>Update user</h2>
                 </header>
-                <form action="/UserController" method="post">
+                <form action="UserController" method="get">
 
                     <input type="hidden" name="action" value="update">
-                    <input type="hidden" name="username" value="${user.userName}">
+                    <input type="hidden" name="userName" value="${user.userName}">
 
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
-                                <input disabled type="text" name="user" placeholder="UserName" value="${user.userName}" />
+                                <input disabled type="text" name="userName" placeholder="UserName" value="${user.userName}" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input type="password" name="pass" placeholder="Password"  value="${user.password}"/>
+                                <input disabled type="password" name="pass" placeholder="Password"  value="${user.password}"/>
                             </div>
                             <div class="col-12">
                                 <input type="text" name="name" placeholder="Name" value="${user.name}"/>
@@ -52,7 +52,7 @@
                                 <input type="text" name="email" placeholder="Email" value="${user.email}"/>
                             </div>
                             <div class="col-12">
-                                <textarea name="address" placeholder="Address" rows="6" >value="${user.address}"</textarea>
+                                <input type="text" name="address" placeholder="Address" rows="6" value="${user.address}"/>
                             </div>
                             <div class="col-12">
                                 <input type="submit" value="Finish" />
