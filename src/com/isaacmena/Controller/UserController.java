@@ -69,6 +69,7 @@ public class UserController extends HttpServlet {
         try {
 
             modelUser.insertUser(user);
+            Credencial.setCurrentUser(user.getUserName(), user.getPassword());
             listUsers(request, response);
 
         }catch (Exception e){

@@ -37,7 +37,7 @@
                                 <input disabled type="text" name="userName" placeholder="UserName" value="${user.userName}" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input disabled type="password" name="pass" placeholder="Password"  value="${user.password}"/>
+                                <input type="password" name="pass" placeholder="Password"  value="${user.password}"/>
                             </div>
                             <div class="col-12">
                                 <input type="text" name="name" placeholder="Name" value="${user.name}"/>

@@ -36,7 +36,7 @@
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
-                                <input disabled type="text" name="observationId" placeholder="Observation id" value="${observation.observationId}" />
+                                <input disabled type="text" name="observationId" value="${observation.observationId}" />
                             </div>
                             <div class="col-6 col-12-medium">
                                 <input required type="text" name="latitude" placeholder="Latitude"  value="${observation.latitude}"/>

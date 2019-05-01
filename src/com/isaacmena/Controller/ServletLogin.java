@@ -42,8 +42,10 @@ public class ServletLogin extends HttpServlet {
             e.printStackTrace();
         }
 
-        if (currentUser != null && password.equals(currentUser.getPassword()))
+        if (currentUser != null && password.equals(currentUser.getPassword())){
+            Credencial.setCurrentUser(userName, password);
             response.sendRedirect("index.jsp");
+        }
         else response.sendRedirect("View/UserJSPs/login.jsp");
 
     }

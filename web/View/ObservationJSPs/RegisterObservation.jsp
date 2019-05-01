@@ -31,6 +31,7 @@
                 <form action="ObserverController" method="get">
 
                     <input type="hidden" name="action" value="insert">
+                    <input type="hidden" name="username" value="${CurrentUser}">
 
                     <div>
                         <div class="row">
@@ -57,7 +58,7 @@
 
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input required type="text" name="username" placeholder="User name" />
+                                <input disabled type="text" name="username" value="${CurrentUser}" />
                             </div>
                             <div class="col-6 col-12-medium">
                                 <input required type="text" name="imageURL" placeholder="Image URL" />
