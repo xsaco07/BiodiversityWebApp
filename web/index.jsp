@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
+
     <head>
       <title>Taxon</title>
       <meta charset="utf-8" />
@@ -7,6 +9,7 @@
       <link rel="stylesheet" href="assets/css/main.css" />
       <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
+
     <body class="is-preload">
 
     <!-- Wrapper-->
@@ -15,8 +18,10 @@
       <!-- Nav -->
       <nav id="nav">
         <a href="#" class="icon fa-home"><span>Home</span></a>
-        <a href="#work" class="icon fa-search"><span>Observations</span></a>
-        <a href="#contact" class="icon fa-user"><span>User settings</span></a>
+        <a href="#observations" class="icon fa-search"><span>Observations</span></a>
+        <a href="#users" class="icon fa-user"><span>User settings</span></a>
+        <a href="#images" class="icon fa-image"><span>Images</span></a>
+        <a href="View/UserJSPs/login.jsp" class="icon fa-sign-out"><span>Log out</span></a>
       </nav>
 
       <!-- Main -->
@@ -29,74 +34,77 @@
             <h1>Naturalist</h1>
             <p>Update and visualize BIO-INFO</p>
           </header>
-          <a href="#work" class="jumplink pic">
+          <a href="#observations" class="jumplink pic">
             <span class="arrow icon fa-chevron-right"><span>See my work</span></span>
             <img src="images/jaguar.jpg" align="center" />
           </a>
         </article>
 
         <!-- Observations -->
-        <article id="work" class="panel">
+        <article id="observations" class="panel">
           <header>
-            <h2>List of observations</h2>
+            <h2>Observations</h2>
           </header>
-          <p>
-            This is the full list of observations made by all the users.
-            Below you can add new ones, delete or update the existing.
+
+          <p align="center">
+            Every time a user records any specie any where and want to share it, he or she will
+            make an <b>Observation</b>. You can do it whenever you want. If you made a mistake
+            you can update or delete any observation.
           </p>
-          <section>
-            <div class="row">
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
-                <h3>Nombre</h3>
-              </div>
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-                <h3 style="align-content: center">Nombre</h3>
-              </div>
-              <div class="col-4 col-6-medium col-12-small">
-                <a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-                <h3>Nombre</h3>
-              </div>
-              <div class="col-4 col-6-medium col-12-small">
-                <input type="button" value="New observation" onclick="" align="center">
-              </div>
-              <div class="col-4 col-6-medium col-12-small">
-                <input type="button" value="Delete observation" onclick="">
-              </div>
-              <div class="col-4 col-6-medium col-12-small">
-                <input type="button" value="Update observation" onclick="">
-              </div>
-            </div>
-          </section>
+
+            <img style="box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 8px solid #d7d7d7; display: block; margin: 0 auto" src="assets/css/images/photographer.png" width="400" height="300" alt="">
+
+            <br>
+
+            <form action="ObserverController" method="get">
+                <input type="hidden" name="action" value="list">
+                <input style="box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" type="submit" value="View all observations">
+            </form>
+
         </article>
 
-        <!-- Contact -->
-        <article id="contact" class="panel">
+        <!-- Users -->
+        <article id="users" class="panel">
+
           <header>
-            <h2>Contact Me</h2>
+            <h2>Users</h2>
           </header>
-          <form action="#" method="post">
-            <div>
-              <div class="row">
-                <div class="col-6 col-12-medium">
-                  <input type="text" name="name" placeholder="Name" />
-                </div>
-                <div class="col-6 col-12-medium">
-                  <input type="text" name="email" placeholder="Email" />
-                </div>
-                <div class="col-12">
-                  <input type="text" name="subject" placeholder="Subject" />
-                </div>
-                <div class="col-12">
-                  <textarea name="message" placeholder="Message" rows="6"></textarea>
-                </div>
-                <div class="col-4-small col-4-small">
-                  <input type="submit" value="Send Message" />
-                </div>
-              </div>
-            </div>
-          </form>
+
+            <p align="center">
+                <b>Users</b> can make the observations in this web page.
+            </p>
+
+            <img style="box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 8px solid #d7d7d7; display: block; margin: 0 auto" src="assets/css/images/user2.jpg" width="250" height="250" alt="">
+
+            <br>
+
+            <form action="UserController" method="get">
+                <input type="hidden" name="action" value="list">
+                <input style="box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" type="submit" value="View all users">
+            </form>
+
+        </article>
+
+        <!-- Images -->
+        <article id="images" class="panel">
+          <header>
+            <h2>Specie images</h2>
+          </header>
+
+            <p align="center">
+                We store <b>Specie Images</b> so the users can look for examples of another photographers.
+                You can add new ones whenever you want or update it if you made a mistake while creating a new one.
+            </p>
+
+            <img style="border: 8px solid #d7d7d7; box-shadow: 12px 12px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" src="assets/css/images/animal.jpg" width="480" height="300" alt="">
+
+            <br>
+
+            <form action="ImageController" method="get">
+                <input type="hidden" name="action" value="list">
+                <input style="box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: block; margin: 0 auto" type="submit" value="View gallery">
+            </form>
+
         </article>
 
       </div>

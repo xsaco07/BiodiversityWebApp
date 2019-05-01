@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Logging Page</title>
+        <title>New image</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../../assets/css/main.css" />
@@ -15,29 +15,46 @@
 
         <!-- Nav -->
         <nav id="nav">
-            <a href="#logging" class="icon fa-user"><span>Log In</span></a>
+            <a href="#register" class="icon fa-plus-square"><span>Register</span></a>
         </nav>
 
         <!-- Main -->
         <div id="main">
 
-            <!-- Logging -->
-            <article id="logging" class="panel">
+            <!-- Register -->
+            <article id="register" class="panel">
                 <header>
-                    <h2>Log in</h2>
+                    <h2>New image</h2>
                 </header>
-                <form action="/ServletLogin" method="post">
+                <form action="/ImageController" method="get">
+
+                    <input type="hidden" name="action" value="insert">
+
                     <div>
                         <div class="row">
                             <div class="col-6 col-12-medium">
-                                <input required type="text" name="userName" placeholder="User name" />
+                                <input type="text" required name="url" placeholder="URL" />
                             </div>
                             <div class="col-6 col-12-medium">
-                                <input required type="password" name="password" placeholder="Password" />
+                                <input type="text" required name="photographer" placeholder="Photographer" />
+                            </div>
+                            <div class="col-6 col-12-medium">
+                                <input type="text" required name="specieName" placeholder="Specie name" />
                             </div>
                             <div class="col-12">
-                                <input type="submit" value="Access" />
-                                <input type="button" value="Sign Up" onclick="window.location.href='../../View/UserJSPs/RegisterUser.jsp'" style="padding: 15px; background: #444444; border: #888888; border-radius: 10px">
+                                <input type="date" required name="date" placeholder="Date" />
+                            </div>
+                            <div class="col-6 col-12-medium">
+                                <input type="text" name="country" placeholder="Country" />
+                            </div>
+                            <div class="col-6 col-12-medium">
+                                <input type="text" name="province" placeholder="Province" />
+                            </div>
+                            <div class="col-12">
+                                <input type="text" name="owner" placeholder="Owner name" />
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" value="Finish" />
                             </div>
                         </div>
                     </div>
@@ -64,3 +81,5 @@
 
     </body>
 </html>
+
+

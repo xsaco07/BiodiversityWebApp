@@ -31,28 +31,22 @@ public class ServletLogin extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userName = request.getParameter("user");
-        String password = request.getParameter("pass");
 
-        if(userName.length() == 0 || password.length() == 0){
-            response.sendRedirect("View/UserJSPs/login.jsp");
-        }
-        else {
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        User currentUser = null;
 
-            User currentUser = null;
-
-            try {
-                currentUser = modelUser.getUser(userName);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            System.out.print("\nUSER DATA: " + currentUser);
-
-            if (currentUser == null) response.sendRedirect("View/UserJSPs/login.jsp");
-            else response.sendRedirect("index.jsp");
+        try {
+            currentUser = modelUser.getUser(userName);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
+        if (currentUser != null && password.equals(currentUser.getPassword())){
+            Credencial.setCurrentUser(userName, password);
+            response.sendRedirect("index.jsp");
+        }
+        else response.sendRedirect("View/UserJSPs/login.jsp");
 
     }
 

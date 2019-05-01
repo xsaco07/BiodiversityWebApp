@@ -36,30 +36,32 @@ public class ModelUser {
             result = query.executeQuery(sql);
 
             while (result.next()){
-                users.add(createUserFromQuery(result));
+                users.add(createUserFromResultSetData(result));
             }
 
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
         }
 
         return users;
 
     }
 
-    private User createUserFromQuery(ResultSet result){
+    private User createUserFromResultSetData(ResultSet result) throws Exception{
 
         User user = null;
 
         try {
-
-            String userName = result.getString(7);
-            String password = result.getString(8);
-            String name = result.getString(2);
-            String lastName1 = result.getString(3);
-            String lastName2 = result.getString(4);
-            String address = result.getString(5);
-            String email = result.getString(6);
+            String userName = result.getString("USER_NAME");
+            String password = result.getString("USER_PASS");
+            String name = result.getString("NAME");
+            String lastName1 = result.getString("LAST_NAME1");
+            String lastName2 = result.getString("LAST_NAME2");
+            String address = result.getString("ADDRESS");
+            String email = result.getString("EMAIL");
 
             user = new User(userName, password, name, lastName1, lastName2, address, email);
 
@@ -74,41 +76,43 @@ public class ModelUser {
     public User getUser(String userName) throws Exception{
 
         User user = null;
-        System.out.println("\nUSER NAME " + userName);
+
         try {
 
             // Create connection
             connection = dataBase.getConnection();
 
             // Create sql query
-            //String sql = String.format("Select * from USERS u where u.USER_WEB_NAME = '%s'", userName);
-            String sql = String.format("Select * from USERS u where u.USER_WEB_NAME = '%s'", userName);
+            String sql = String.format("Select * from USERS u where u.USER_NAME = '%s'", userName);
             query = connection.createStatement();
 
             // Execute sql query
             result = query.executeQuery(sql);
 
             if (result.next()){
-                System.out.println("\nCREANDO OBJETO");
-                user = createUserFromQuery(result);
+                user = createUserFromResultSetData(result);
             }
+            else throw new Exception("User not found");
 
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
         }
 
         return user;
 
     }
 
-    public void deleteUser(String name) throws Exception{
+    public void deleteUser(String username) throws Exception{
         try {
 
             // Create connection
             connection = dataBase.getConnection();
 
             // Create sql query
-            String sql = String.format("Delete from USERS U where U.NAME = '%s'", name);
+            String sql = String.format("Delete from USERS U where U.USER_NAME = '%s'", username);
             query = connection.createStatement();
 
             // Execute sql query
@@ -116,14 +120,49 @@ public class ModelUser {
 
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
         }
     }
 
-    public void updateUser(String name) throws Exception{
+    public void updateUser(User user) throws Exception{
 
+        try {
+
+            System.out.println("\nUpdating user in model\n");
+
+            // Create connection
+            connection = dataBase.getConnection();
+
+            // Create sql query
+            String sql =
+                    String.format(
+                    "Update USERS set " +
+                            "NAME = '%s', " +
+                            "LAST_NAME1 = '%s', " +
+                            "LAST_NAME2 = '%s', " +
+                            "ADDRESS = '%s', " +
+                            "EMAIL = '%s'" +
+                            " where USER_NAME = '%s'",
+                    user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
+                    user.getEmail(), user.getUserName());
+
+            System.out.println("\nURL:" + sql);
+            query = connection.createStatement();
+
+            // Execute sql query
+            result = query.executeQuery(sql);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
+        }
     }
 
-    public void insertUser(String userName, String password, String name, String lastName1, String lastName2, String address, String email){
+    public void insertUser(User user) throws Exception{
         try {
 
             // Create connection
@@ -131,8 +170,9 @@ public class ModelUser {
 
             // Create sql query
             String sql = String.format(
-                    "Insert into USERS values (%s, %s, %s, %s, %s, %s, %s)",
-                    name, lastName1, lastName2, address, email, userName, password);
+                    "Insert into USERS values ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                    user.getUserName(), user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
+                    user.getEmail(), user.getPassword());
 
             query = connection.createStatement();
 
@@ -141,6 +181,9 @@ public class ModelUser {
 
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            result.close();
+            connection.close();
         }
     }
 
