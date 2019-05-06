@@ -99,7 +99,11 @@ public class UserController extends HttpServlet {
 
     private void deletingUser(HttpServletRequest request, HttpServletResponse response){
 
+<<<<<<< HEAD
         String userName = request.getParameter("username");
+=======
+        String userName = request.getParameter("user");
+>>>>>>> b7bcba29c793b5d2036c92fe260b36f39b2d47b2
 
         try {
             modelUser.deleteUser(userName);
@@ -148,7 +152,11 @@ public class UserController extends HttpServlet {
     @NotNull
     private User createUserFromRequestData(HttpServletRequest request){
 
+<<<<<<< HEAD
         String userName = request.getParameter("username");
+=======
+        String userName = request.getParameter("userName");
+>>>>>>> b7bcba29c793b5d2036c92fe260b36f39b2d47b2
         String password = request.getParameter("pass");
         String realName = request.getParameter("name");
         String lastName1 = request.getParameter("last_name1");
