@@ -29,7 +29,11 @@
                 <form action="UserController" method="get">
 
                     <input type="hidden" name="action" value="update">
+<<<<<<< HEAD
+                    <input type="hidden" name="username" value="${user.userName}">
+=======
                     <input type="hidden" name="userName" value="${user.userName}">
+>>>>>>> b7bcba29c793b5d2036c92fe260b36f39b2d47b2
 
                     <div>
                         <div class="row">

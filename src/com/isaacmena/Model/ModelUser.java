@@ -143,10 +143,11 @@ public class ModelUser {
                             "LAST_NAME1 = '%s', " +
                             "LAST_NAME2 = '%s', " +
                             "ADDRESS = '%s', " +
-                            "EMAIL = '%s'" +
+                            "EMAIL = '%s', " +
+                            "USER_PASS = '%s'" +
                             " where USER_NAME = '%s'",
                     user.getName(), user.getLastName1(), user.getLastName2(), user.getAddress(),
-                    user.getEmail(), user.getUserName());
+                    user.getEmail(), user.getPassword(), user.getUserName());
 
             System.out.println("\nURL:" + sql);
             query = connection.createStatement();
